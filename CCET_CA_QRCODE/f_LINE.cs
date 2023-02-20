@@ -334,6 +334,15 @@ namespace CCET_CA_QRCODE
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                MessageBox.Show(row.Cells["NAME"].Value.ToString());
+                //More code here
+            }
+        }
+
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 

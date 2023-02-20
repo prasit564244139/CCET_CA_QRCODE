@@ -255,7 +255,7 @@
             this.MaximumSize = new System.Drawing.Size(913, 835);
             this.MinimumSize = new System.Drawing.Size(913, 835);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "INFOMATION";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);

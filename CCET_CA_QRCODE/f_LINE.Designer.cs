@@ -67,7 +67,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(23, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 50);
+            this.label1.Size = new System.Drawing.Size(60, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "QR :";
             // 
@@ -88,7 +88,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 50);
+            this.label2.Size = new System.Drawing.Size(132, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "LOCATION :";
             // 
@@ -97,7 +97,7 @@
             this.textBox2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.textBox2.Location = new System.Drawing.Point(189, 286);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 55);
+            this.textBox2.Size = new System.Drawing.Size(98, 46);
             this.textBox2.TabIndex = 3;
             // 
             // dataGridView1
@@ -217,7 +217,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(448, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 81);
+            this.label3.Size = new System.Drawing.Size(194, 64);
             this.label3.TabIndex = 10;
             this.label3.Text = "LOCATION";
             // 
@@ -263,6 +263,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "REPRINT";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // checkBox1
             // 
@@ -271,7 +272,7 @@
             this.checkBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox1.Location = new System.Drawing.Point(32, 102);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 43);
+            this.checkBox1.Size = new System.Drawing.Size(140, 38);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "By PC NAME";
             this.checkBox1.UseVisualStyleBackColor = true;

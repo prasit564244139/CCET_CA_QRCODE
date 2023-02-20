@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using QRCoder;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Drawing.Printing;
 
 namespace CCET_CA_QRCODE
 {
@@ -340,6 +341,31 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show(row.Cells["NAME"].Value.ToString());
                 //More code here
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image != null)
+            {
+                PrintDocument p = new PrintDocument();
+                p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+                {
+                    e1.Graphics.DrawImage(pictureBox2.Image, 0, 0);
+                };
+                try
+                {
+                    p.Print();
+                }
+                catch
+                {
+                    //throw new Exception("Exception Occured While Printing", ex.ToString());
+                    MessageBox.Show("Print Error.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please GenQR or enter value idqr");
             }
         }
 

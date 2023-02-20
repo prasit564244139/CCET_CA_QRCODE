@@ -70,7 +70,7 @@ namespace CCET_CA_QRCODE
                 txt_SPEC.Text = txt_SPEC.Text.Trim().Replace("'", "");
                 txt_GEN.Text = txt_GEN.Text.Trim().Replace("'","");
                 txt_RAM.Text = txt_RAM.Text.Trim().Replace("'","");
-                QUERY_Data("INSERT INTO TBL_GG_STORE_TYPE (SPEC,RAM,USERNAME,INS_DT) VALUES ('" + txt_SPEC.Text + "/" + txt_GEN.Text + "','" + txt_RAM.Text.ToString() + "','" + txt_USER.Text.ToString() + "',GETDATE())","Insert");
+                QUERY_Data("INSERT INTO TBL_GG_STORE_TYPE (SPEC,RAM,USERNAME,INS_DT) VALUES ('" + txt_SPEC.Text + "_" + txt_GEN.Text + "','" + txt_RAM.Text.ToString() + "','" + txt_USER.Text.ToString() + "',GETDATE())","Insert");
                 QUERY_Data("SELECT * FROM TBL_GG_STORE_TYPE", "select");
 
 

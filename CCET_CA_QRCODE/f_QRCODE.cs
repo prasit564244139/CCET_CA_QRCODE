@@ -17,7 +17,7 @@ namespace CCET_CA_QRCODE
     {
         static DataTable DT = new DataTable();
         static SqlConnection conn = new SqlConnection();
-        String Qrgen,TextQR;
+        String Qrgen,TextQR,SQL;
         PictureBox picBox1 = new PictureBox();
         Bitmap getimage;
 
@@ -28,6 +28,7 @@ namespace CCET_CA_QRCODE
                 conn.ConnectionString = "Data Source=10.51.0.145;Initial Catalog=mes;User ID=calcomp;Password=calcomp";
                 SqlCommand cmd = new SqlCommand(SQL, conn);
                 DT.Clear();
+                DT.Columns.Clear();
                 conn.Open();
 
                 if (respontext == "Insert")
@@ -87,6 +88,16 @@ namespace CCET_CA_QRCODE
         private void f_QRCODE_Load(object sender, EventArgs e)
         {
             //tx.Items.Add("555555");
+            comboBox1.Items.Add("WINDOWN_XP");
+            comboBox1.Items.Add("WINDOWN_7");
+            comboBox1.Items.Add("WINDOWN_10");
+            comboBox1.Items.Add("WINDOWN_11");
+            SQL = "SELECT DISTINCT RTRIM(LTRIM(SPEC)) AS SPEC,RTRIM(LTRIM(RAM)) AS RAM FROM TBL_GG_STORE_TYPE ORDER BY SPEC";
+            QUERY_Data(SQL, "SELECT", null, null);
+            foreach (DataRow dtRow in DT.Rows)
+            {
+                comboBox2.Items.Add(dtRow["SPEC"].ToString()+"@"+ dtRow["RAM"].ToString());
+            }
 
         }
 
@@ -120,26 +131,45 @@ namespace CCET_CA_QRCODE
 
         private void Insert(Bitmap image,PictureBox picBox1)
         {
-            string spec = textBox1.Text.Trim().Replace("'","").ToString();
+            //string spec = comboBox2.Text.Trim().Replace("'","").ToString();
+            string spec = comboBox2.Text.Substring(0, comboBox2.Text.IndexOf('@')).Trim();
+            string[] sAry = comboBox2.Text.Split('@');
             string name = textBox2.Text.Trim().Replace("'","").ToString();
-            string key = textBox3.Text.Trim().Replace("'","").ToString();
+            string key = comboBox1.Text.Trim().Replace("'","").ToString();
             try
             {
                 QUERY_Data("INSERT INTO TBL_GG_STORE " +
                 "(NAME,KEY_MAC,STATUS,USERNAME,QR,ID_SPEC,INS_DT,LAST_UPD) " +
                 "SELECT '"+name+"','"+key+"','store','"+ c_VALUES.c_USER + "','"+ TextQR + "',ID_SPEC,GETDATE(),GETDATE() " +
-                "FROM TBL_GG_STORE_TYPE WHERE RTRIM(LTRIM(SPEC)) = '"+spec+"' ", "Insert",image,picBox1);
+                "FROM TBL_GG_STORE_TYPE WHERE RTRIM(LTRIM(SPEC)) = '"+spec+ "' AND RTRIM(LTRIM(RAM)) = '"+ sAry[1].Trim() + "' ", "Insert",image,picBox1);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                picBox1.Image = null;
+                textBox2.Text = "";
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                textBox2.Focus();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         private void GEN_QR()
         {
             try
             {
-                TextQR = textBox1.Text + "@" + textBox2.Text.Trim() + "@" + textBox3.Text.Trim();
+                TextQR = textBox2.Text.Trim() + "@" + comboBox2.Text.Trim() + "@" + comboBox1.Text.Trim();
                 Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                 //Qrgen = text;
                 QRCodeGenerator QR = new QRCodeGenerator();

@@ -149,7 +149,7 @@ namespace CCET_CA_QRCODE
                         Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                         //Qrgen = text;
                         QRCodeGenerator QR = new QRCodeGenerator();
-                        QRCodeData data = QR.CreateQrCode(TextQR, QRCodeGenerator.ECCLevel.Q);
+                        QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
                         QRCode code = new QRCode(data);
                         //Insert(code.GetGraphic(5), pictureBox2);
                         dtRow[4] = code.GetGraphic(5);
@@ -222,7 +222,7 @@ namespace CCET_CA_QRCODE
                 Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                 //Qrgen = text;
                 QRCodeGenerator QR = new QRCodeGenerator();
-                QRCodeData data = QR.CreateQrCode(TextQR, QRCodeGenerator.ECCLevel.Q);
+                QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
                 QRCode code = new QRCode(data);
                 //Insert(code.GetGraphic(5), pictureBox2);
                 pictureBox2.Image = code.GetGraphic(5);
@@ -367,6 +367,11 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show("Please GenQR or enter value idqr");
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

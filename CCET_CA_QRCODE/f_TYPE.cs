@@ -96,5 +96,37 @@ namespace CCET_CA_QRCODE
             dv.RowFilter = string.Format("SPEC like '%{0}%'", textBox2.Text.Trim());
             dataGridView1.DataSource = dv;
         }
+
+        private void txt_USER_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+            }
+        }
+
+        private void txt_SPEC_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txt_SPEC.Text.Trim()))
+            {
+                txt_GEN.Focus();
+            }
+        }
+
+        private void txt_GEN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txt_GEN.Text.Trim()))
+            {
+                txt_RAM.Focus();
+            }
+        }
+
+        private void txt_RAM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txt_GEN.Text.Trim()))
+            {
+                btn_ADD.PerformClick();
+            }
+        }
     }
 }

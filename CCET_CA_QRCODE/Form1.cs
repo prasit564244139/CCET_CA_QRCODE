@@ -19,6 +19,7 @@ namespace CCET_CA_QRCODE
     {
         static System.Data.DataTable DT = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
+        static string SQL;
         static void QUERY_Data(String SQL)
         {
             try
@@ -68,6 +69,13 @@ namespace CCET_CA_QRCODE
             if (!string.IsNullOrEmpty(c_VALUES.c_USER))
             {
                 lbl_USER.Text = c_VALUES.c_USER;
+                DT.Clear();
+                SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
+                SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+                SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
+                SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+                QUERY_Data(SQL);
+                dataGridView1.DataSource = DT;
                 textBox1.Focus();
 
             }
@@ -87,6 +95,13 @@ namespace CCET_CA_QRCODE
                 if (!string.IsNullOrEmpty(c_VALUES.c_USER))
                 {
                     lbl_USER.Text = c_VALUES.c_USER;
+                    DT.Clear();
+                    SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
+                    SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+                    SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
+                    SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+                    QUERY_Data(SQL);
+                    dataGridView1.DataSource = DT;
                     textBox1.Focus();
                 }
                 else
@@ -144,9 +159,14 @@ namespace CCET_CA_QRCODE
 
         private void btn_SHOW_ALL_Click(object sender, EventArgs e)
         {
-                DT.Clear();
-                QUERY_Data("SELECT * FROM TBL_GG_STORE");
-                dataGridView1.DataSource = DT;
+            DT.Columns.Clear();
+            DT.Clear();
+            SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
+            SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+            SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
+            SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+            QUERY_Data(SQL);
+            dataGridView1.DataSource = DT;
         }
 
         private void btn_EXCEL_Click(object sender, EventArgs e)

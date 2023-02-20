@@ -67,6 +67,7 @@
             this.txt_SPEC.Name = "txt_SPEC";
             this.txt_SPEC.Size = new System.Drawing.Size(167, 43);
             this.txt_SPEC.TabIndex = 1;
+            this.txt_SPEC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_SPEC_KeyDown);
             // 
             // dataGridView1
             // 
@@ -142,6 +143,7 @@
             this.txt_RAM.Name = "txt_RAM";
             this.txt_RAM.Size = new System.Drawing.Size(139, 43);
             this.txt_RAM.TabIndex = 6;
+            this.txt_RAM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_RAM_KeyDown);
             // 
             // label4
             // 
@@ -161,6 +163,7 @@
             this.txt_GEN.Name = "txt_GEN";
             this.txt_GEN.Size = new System.Drawing.Size(139, 43);
             this.txt_GEN.TabIndex = 8;
+            this.txt_GEN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_GEN_KeyDown);
             // 
             // label5
             // 
@@ -180,6 +183,7 @@
             this.txt_USER.Name = "txt_USER";
             this.txt_USER.Size = new System.Drawing.Size(167, 43);
             this.txt_USER.TabIndex = 10;
+            this.txt_USER.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_USER_KeyDown);
             // 
             // label6
             // 

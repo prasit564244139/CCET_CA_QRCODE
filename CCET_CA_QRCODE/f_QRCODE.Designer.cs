@@ -72,11 +72,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(354, 161);
+            this.label3.Location = new System.Drawing.Point(352, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 39);
             this.label3.TabIndex = 4;
-            this.label3.Text = "KEY :";
+            this.label3.Text = "WIN :";
             // 
             // textBox2
             // 
@@ -86,6 +86,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(321, 41);
             this.textBox2.TabIndex = 6;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // comboBox1
             // 
@@ -104,6 +105,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(321, 44);
             this.comboBox2.TabIndex = 13;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // pictureBox4
             // 

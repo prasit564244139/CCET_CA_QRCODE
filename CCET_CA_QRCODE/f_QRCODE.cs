@@ -59,7 +59,7 @@ namespace CCET_CA_QRCODE
             }        
             catch (Exception EX)
             {
-                MessageBox.Show(respontext + "Fail..");
+                MessageBox.Show(respontext + "Fail..",EX.ToString());
                 //MessageBox.Show("SQL query error please check lan connect or input type.\n" + EX.ToString());
             }
             finally
@@ -153,6 +153,7 @@ namespace CCET_CA_QRCODE
         {
             try
             {
+                pictureBox1.Image = null;
                 picBox1.Image = null;
                 textBox2.Text = "";
                 comboBox1.Text = "";
@@ -161,8 +162,21 @@ namespace CCET_CA_QRCODE
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(textBox2.Text.Trim()))
+            {
+                comboBox2.Focus();
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.Focus();
         }
 
         private void GEN_QR()

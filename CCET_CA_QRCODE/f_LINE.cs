@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using QRCoder;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CCET_CA_QRCODE
 {
     public partial class f_LINE : Form
     {
-        static DataTable DT = new DataTable();
-        static DataTable DT3 = new DataTable();
-        static DataTable DT2 = new DataTable();
+        static System.Data.DataTable DT = new System.Data.DataTable();
+        static System.Data.DataTable DT3 = new System.Data.DataTable();
+        static System.Data.DataTable DT2 = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
         Image[] images;
         String Qrgen, TextQR;
@@ -256,12 +257,74 @@ namespace CCET_CA_QRCODE
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (dataGridView3.DataSource == null)
+            {
+                MessageBox.Show("No data");
+            }
+            else
+            {
+                // creating Excel Application  
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                // creating new WorkBook within Excel application  
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                // creating new Excelsheet in workbook  
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                // see the excel sheet behind the program  
+                app.Visible = true;
+                // get the reference of first sheet. By default its name is Sheet1.  
+                // store its reference to worksheet  
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                // changing the name of active sheet  
+                worksheet.Name = "Exported from gridview";
+                // storing header part in Excel  
+                for (int i = 1; i < dataGridView3.Columns.Count + 2; i++)
+                {
+                    if (i < dataGridView3.Columns.Count + 1)
+                    {
+                        worksheet.Cells[1, i] = dataGridView3.Columns[i - 1].HeaderText;
+                    }
+                    else
+                    {
+                       
+                    }
+                }
+                // storing Each row and column value to excel sheet  
+                for (int i = 0; i < dataGridView3.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridView3.Columns.Count; j++)
+                    {
+                        //worksheet.Cells[i + 2, j + 1].ColumnWidth = 100;
+                        //worksheet.Cells[i + 2, j + 1].RowHeight = 100;
+                        if ((dataGridView3.Rows[i].Cells[j].Value.ToString().Split('.'))[0] == "System")
+                        {
 
+                        }
+                        else
+                        {
+                            worksheet.Cells[i + 2, j + 1] = dataGridView3.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    // Add the image to the new column of each row
+                    DataGridViewImageCell cell = (DataGridViewImageCell)dataGridView3.Rows[i].Cells["test"];
+                    System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)cell.Value;
+                    System.Drawing.Image resized = bmp.GetThumbnailImage(110, 110, null, IntPtr.Zero);
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].ColumnWidth = 14;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].RowHeight = 75;
+                    Excel.Range range = (Excel.Range)worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1];
+                    Clipboard.SetImage(resized);
+                    worksheet.Paste(range, resized);
+                }
+
+
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
+
     }
 }

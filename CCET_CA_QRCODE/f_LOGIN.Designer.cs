@@ -37,6 +37,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +50,7 @@
             this.label1.Location = new System.Drawing.Point(36, 117);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 36);
+            this.label1.Size = new System.Drawing.Size(108, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "USERNAME :";
             // 
@@ -61,7 +62,7 @@
             this.label3.Location = new System.Drawing.Point(28, 197);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 36);
+            this.label3.Size = new System.Drawing.Size(116, 31);
             this.label3.TabIndex = 2;
             this.label3.Text = "PASSWORD :";
             // 
@@ -73,7 +74,7 @@
             this.label2.Location = new System.Drawing.Point(256, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 72);
+            this.label2.Size = new System.Drawing.Size(111, 59);
             this.label2.TabIndex = 5;
             this.label2.Text = "LOGIN";
             // 
@@ -82,7 +83,7 @@
             this.textBox1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.textBox1.Location = new System.Drawing.Point(188, 117);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(338, 43);
+            this.textBox1.Size = new System.Drawing.Size(338, 36);
             this.textBox1.TabIndex = 7;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -92,7 +93,7 @@
             this.textBox2.Location = new System.Drawing.Point(188, 194);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(338, 43);
+            this.textBox2.Size = new System.Drawing.Size(338, 36);
             this.textBox2.TabIndex = 8;
             this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
@@ -117,18 +118,28 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(464, 45);
+            this.button1.Location = new System.Drawing.Point(188, 247);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(297, 249);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(60, 20);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // f_LOGIN
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(576, 274);
+            this.ClientSize = new System.Drawing.Size(578, 282);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
@@ -161,5 +172,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

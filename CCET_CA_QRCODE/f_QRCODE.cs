@@ -154,7 +154,10 @@ namespace CCET_CA_QRCODE
             try
             {
                 pictureBox1.Image = null;
+<<<<<<< HEAD
                 picBox1.Image = null;
+=======
+>>>>>>> 5363db7a6ca292461df6801efc820da592c23132
                 textBox2.Text = "";
                 comboBox1.Text = "";
                 comboBox2.Text = "";
@@ -201,20 +204,21 @@ namespace CCET_CA_QRCODE
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (getimage != null)
+            if (pictureBox1.Image != null)
             {
                 PrintDocument p = new PrintDocument();
                 p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
                 {
-                    e1.Graphics.DrawImage(getimage, 0, 0);
+                    e1.Graphics.DrawImage(pictureBox1.Image, 0, 0);
                 };
                 try
                 {
                     p.Print();
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    throw new Exception("Exception Occured While Printing", ex);
+                    //throw new Exception("Exception Occured While Printing", ex.ToString());
+                    MessageBox.Show("Print Error.");
                 }
             }
             else

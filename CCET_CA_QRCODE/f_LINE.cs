@@ -21,7 +21,7 @@ namespace CCET_CA_QRCODE
         static System.Data.DataTable DT2 = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
         Image[] images;
-        String Qrgen, TextQR;
+        String Qrgen, TextQR,SQL;
 
         static void QUERY_Data(String SQL, String respontext)
         {
@@ -44,11 +44,26 @@ namespace CCET_CA_QRCODE
                         MessageBox.Show(respontext + "Fail..");
                     }
                 }
+                else if(respontext == "UPDATE")
+                {
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show(respontext + " : Sucess..");
+                    }
+                    else
+                    {
+                        MessageBox.Show(respontext + "Fail..");
+                    }
+                }
                 conn.Close();
             }
             catch(Exception EX)
             {
                 MessageBox.Show("SQL query error please check lan connect or input type.\n" + EX.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -339,8 +354,25 @@ namespace CCET_CA_QRCODE
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                MessageBox.Show(row.Cells["NAME"].Value.ToString());
-                //More code here
+                //MessageBox.Show(row.Cells["NAME"].Value.ToString());
+                String SN = row.Cells["NAME"].Value.ToString().Trim();
+                SQL = "UPDATE TBL_GG_STORE ";
+                SQL += "SET STATUS = '"+textBox2.Text.Trim()+"' ";
+                SQL += "WHERE NAME = '" + row.Cells["NAME"].Value.ToString().Trim() + "' ";
+                QUERY_Data(SQL, "UPDATE");
+                textBox2.Text = "";
+                textBox1.Text = "";
+                QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + SN + "'", "SELECT");
+                dataGridView1.DataSource = DT;
+                QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE NAME = '" + SN + "'", "SELECT");
+                dataGridView2.DataSource = DT2;
+                //foreach (DataGridViewRow row in dataGridView1.Rows)
+                //{
+                //    //MessageBox.Show(row.Cells["QR"].Value.ToString());
+                //    GEN_QR(row.Cells["QR"].Value.ToString());
+                //    //More code here
+                //}
+                textBox1.Focus();
             }
         }
 

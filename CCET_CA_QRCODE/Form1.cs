@@ -10,12 +10,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Microsoft.Office.Interop.Excel;
+
 
 namespace CCET_CA_QRCODE
 {
     public partial class Form1 : Form
     {
-        static DataTable DT = new DataTable();
+        static System.Data.DataTable DT = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
         static void QUERY_Data(String SQL)
         {
@@ -78,7 +80,7 @@ namespace CCET_CA_QRCODE
         
         private void opennewform(object obj)
         {
-            Application.Run(new f_LOGIN());
+            System.Windows.Forms.Application.Run(new f_LOGIN());
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -112,6 +114,48 @@ namespace CCET_CA_QRCODE
                 DT.Clear();
                 QUERY_Data("SELECT * FROM TBL_GG_STORE");
                 dataGridView1.DataSource = DT;
+        }
+
+        private void btn_EXCEL_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.DataSource == null)
+            {
+                MessageBox.Show("No data");
+            }
+            else
+            {
+                // creating Excel Application  
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                // creating new WorkBook within Excel application  
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                // creating new Excelsheet in workbook  
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                // see the excel sheet behind the program  
+                app.Visible = true;
+                // get the reference of first sheet. By default its name is Sheet1.  
+                // store its reference to worksheet  
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                // changing the name of active sheet  
+                worksheet.Name = "Exported from gridview";
+                // storing header part in Excel  
+                for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
+                {
+                    worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                }
+                // storing Each row and column value to excel sheet  
+                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                // save the application  
+                //workbook.SaveAs("d:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                // Exit from the application  
+                //app.Quit();
+            }
         }
     }
 }

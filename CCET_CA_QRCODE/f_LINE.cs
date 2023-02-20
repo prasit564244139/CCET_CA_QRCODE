@@ -98,14 +98,37 @@ namespace CCET_CA_QRCODE
         private void button4_Click(object sender, EventArgs e)
         {
             //textBox1.Text.Trim().ToString().Replace("'", "");
-            string qrtext = textBox1.Text.Trim().ToString().Replace("'", "");
-            qrtext = qrtext.Replace(Environment.NewLine, "@");
-            QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE QR = '" + qrtext + "'", "SELECT");
-            if (DT.Rows.Count > 0) { dataGridView1.DataSource = DT; textBox2.Text = DT.Rows[0]["STATUS"].ToString(); } else { textBox2.Clear(); }
-            QUERY_Data("SELECT * FROM TBL_GG_STORELOG WHERE QR = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
-            if (DT.Rows.Count > 0) { dataGridView2.DataSource = DT; }
-            textBox1.Clear();
-            textBox1.Focus();
+            try
+            {
+                if (checkBox1.Checked == true)
+                {
+                    QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
+                    dataGridView1.DataSource = DT;
+                    QUERY_Data("SELECT * FROM TBL_GG_STORELOG WHERE NAME = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
+                    dataGridView2.DataSource = DT;
+                }
+                else
+                {
+                    string qrtext = textBox1.Text.Trim().ToString().Replace("'", "");
+                    qrtext = qrtext.Replace(Environment.NewLine, "@");
+                    QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE QR = '" + qrtext + "'", "SELECT");
+                    if (DT.Rows.Count > 0) { dataGridView1.DataSource = DT; textBox2.Text = DT.Rows[0]["STATUS"].ToString(); } else { textBox2.Clear(); }
+                    QUERY_Data("SELECT * FROM TBL_GG_STORELOG WHERE QR = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
+                    if (DT.Rows.Count > 0) { dataGridView2.DataSource = DT; }
+                    textBox1.Clear();
+                    textBox1.Focus();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            
         }
     }
 }

@@ -283,6 +283,8 @@ namespace CCET_CA_QRCODE
                     if (i < dataGridView3.Columns.Count + 1)
                     {
                         worksheet.Cells[1, i] = dataGridView3.Columns[i - 1].HeaderText;
+                        worksheet.Cells[1, i].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                        worksheet.Cells[1, i].VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
                     }
                     else
                     {
@@ -303,6 +305,9 @@ namespace CCET_CA_QRCODE
                         else
                         {
                             worksheet.Cells[i + 2, j + 1] = dataGridView3.Rows[i].Cells[j].Value.ToString();
+                            worksheet.Cells[i + 2, j + 1].HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+                            worksheet.Cells[i + 2, j + 1].VerticalAlignment = Microsoft.Office.Interop.Excel.XlVAlign.xlVAlignCenter;
+
                         }
                     }
 
@@ -310,8 +315,9 @@ namespace CCET_CA_QRCODE
                     DataGridViewImageCell cell = (DataGridViewImageCell)dataGridView3.Rows[i].Cells["test"];
                     System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)cell.Value;
                     System.Drawing.Image resized = bmp.GetThumbnailImage(110, 110, null, IntPtr.Zero);
-                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].ColumnWidth = 14;
-                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].RowHeight = 75;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1 - 2].ColumnWidth = 40;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].ColumnWidth = 15;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].RowHeight = 84;
                     Excel.Range range = (Excel.Range)worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1];
                     Clipboard.SetImage(resized);
                     worksheet.Paste(range, resized);

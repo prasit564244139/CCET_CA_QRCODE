@@ -16,7 +16,7 @@ namespace CCET_CA_QRCODE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new f_LOGIN());
+            Application.Run(new Form1());
         }
     }
 }

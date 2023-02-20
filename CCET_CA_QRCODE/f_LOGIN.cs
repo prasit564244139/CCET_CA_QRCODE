@@ -30,7 +30,7 @@ namespace CCET_CA_QRCODE
         }
 
         c_VALUES c_VALUES = new c_VALUES();
-        Thread th;
+        //Thread th;
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -68,11 +68,16 @@ namespace CCET_CA_QRCODE
                     //MessageBox.Show(DT.Rows[0]["password"].ToString());
                     if(DT.Rows.Count > 0 && DT.Rows[0]["password"].ToString().Trim() == textBox2.Text)
                     {
+                        //c_VALUES c_VALUES = new c_VALUES();
+                        //c_VALUES.c_USER = textBox1.Text.Trim();
+                        //this.Close();
+                        //th = new Thread(opennewform);
+                        //th.Start();
                         c_VALUES c_VALUES = new c_VALUES();
                         c_VALUES.c_USER = textBox1.Text.Trim();
+                        Form1 fMAIN = new Form1();
+                        fMAIN.re_FROM();
                         this.Close();
-                        th = new Thread(opennewform);
-                        th.Start();
                     }
                     else
                     {

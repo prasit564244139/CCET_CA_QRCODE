@@ -65,16 +65,49 @@ namespace CCET_CA_QRCODE
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbl_USER.Text = c_VALUES.c_USER;
-            textBox1.Focus();
+            if (!string.IsNullOrEmpty(c_VALUES.c_USER))
+            {
+                lbl_USER.Text = c_VALUES.c_USER;
+                textBox1.Focus();
+
+            }
+            else
+            {
+                f_LOGIN f_LOGIN = new f_LOGIN();
+                f_LOGIN.ShowDialog();
+                re_FROM();
+            }
+
+        }
+
+        public void re_FROM()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(c_VALUES.c_USER))
+                {
+                    lbl_USER.Text = c_VALUES.c_USER;
+                    textBox1.Focus();
+                }
+                else
+                {
+                    System.Windows.Forms.Application.Exit();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void pic_LOGOUT_Click(object sender, EventArgs e)
         {
             c_VALUES.c_USER = "";
-            this.Close();
-            th = new Thread(opennewform);
-            th.Start();
+            lbl_USER.Text = c_VALUES.c_USER;
+            f_LOGIN f_LOGIN = new f_LOGIN();
+            f_LOGIN.ShowDialog();
+            re_FROM();
         }
         
         

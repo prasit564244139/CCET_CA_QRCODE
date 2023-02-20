@@ -142,6 +142,7 @@ namespace CCET_CA_QRCODE
                     if (ColumnName == "QR")
                     {
                         //GEN_QRIMG(dtRow[column].ToString());
+
                         TextQR = dtRow[column].ToString().Trim();
                         Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                         //Qrgen = text;
@@ -190,7 +191,7 @@ namespace CCET_CA_QRCODE
 
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    MessageBox.Show(row.Cells["QR"].Value.ToString());
+                    //MessageBox.Show(row.Cells["QR"].Value.ToString());
                     GEN_QR(row.Cells["QR"].Value.ToString());
                     //More code here
                 }
@@ -251,6 +252,11 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

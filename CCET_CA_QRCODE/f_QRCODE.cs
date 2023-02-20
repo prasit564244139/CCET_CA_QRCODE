@@ -154,10 +154,7 @@ namespace CCET_CA_QRCODE
             try
             {
                 pictureBox1.Image = null;
-<<<<<<< HEAD
                 picBox1.Image = null;
-=======
->>>>>>> 5363db7a6ca292461df6801efc820da592c23132
                 textBox2.Text = "";
                 comboBox1.Text = "";
                 comboBox2.Text = "";

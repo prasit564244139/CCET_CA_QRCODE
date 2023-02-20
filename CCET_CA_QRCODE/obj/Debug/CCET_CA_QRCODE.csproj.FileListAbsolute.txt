@@ -29,3 +29,6 @@ C:\Users\lc070325\source\repos\CCET_CA_QRCODE\CCET_CA_QRCODE\obj\Debug\CCET_CA_Q
 C:\Users\lc070325\source\repos\CCET_CA_QRCODE\CCET_CA_QRCODE\obj\Debug\CCET_CA_QRCODE.pdb
 C:\Users\lc070325\source\repos\CCET_CA_QRCODE\CCET_CA_QRCODE\bin\Debug\System.Data.Common.dll
 C:\Users\lc070325\source\repos\CCET_CA_QRCODE\CCET_CA_QRCODE\bin\Debug\System.Data.SqlClient.dll
+D:\Test\Nut\MINI_IBORAD\CCET_CA_QRCODE\CCET_CA_QRCODE\bin\Debug\System.Data.Common.dll
+D:\Test\Nut\MINI_IBORAD\CCET_CA_QRCODE\CCET_CA_QRCODE\bin\Debug\System.Data.SqlClient.dll
+D:\Test\Nut\MINI_IBORAD\CCET_CA_QRCODE\CCET_CA_QRCODE\obj\Debug\CCET_CA_QRCODE.csprojResolveAssemblyReference.cache

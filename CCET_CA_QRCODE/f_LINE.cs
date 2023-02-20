@@ -270,7 +270,7 @@ namespace CCET_CA_QRCODE
                 // creating new Excelsheet in workbook  
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
                 // see the excel sheet behind the program  
-                app.Visible = true;
+                app.Visible = false;
                 // get the reference of first sheet. By default its name is Sheet1.  
                 // store its reference to worksheet  
                 worksheet = workbook.Sheets["Sheet1"];
@@ -278,6 +278,7 @@ namespace CCET_CA_QRCODE
                 // changing the name of active sheet  
                 worksheet.Name = "Exported from gridview";
                 // storing header part in Excel  
+
                 for (int i = 1; i < dataGridView3.Columns.Count + 2; i++)
                 {
                     if (i < dataGridView3.Columns.Count + 1)
@@ -296,8 +297,6 @@ namespace CCET_CA_QRCODE
                 {
                     for (int j = 0; j < dataGridView3.Columns.Count; j++)
                     {
-                        //worksheet.Cells[i + 2, j + 1].ColumnWidth = 100;
-                        //worksheet.Cells[i + 2, j + 1].RowHeight = 100;
                         if ((dataGridView3.Rows[i].Cells[j].Value.ToString().Split('.'))[0] == "System")
                         {
 
@@ -310,18 +309,26 @@ namespace CCET_CA_QRCODE
 
                         }
                     }
-
+                   
                     // Add the image to the new column of each row
                     DataGridViewImageCell cell = (DataGridViewImageCell)dataGridView3.Rows[i].Cells["test"];
                     System.Drawing.Bitmap bmp = (System.Drawing.Bitmap)cell.Value;
                     System.Drawing.Image resized = bmp.GetThumbnailImage(110, 110, null, IntPtr.Zero);
-                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1 - 2].ColumnWidth = 40;
-                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].ColumnWidth = 15;
-                    worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1].RowHeight = 84;
-                    Excel.Range range = (Excel.Range)worksheet.Cells[i + 2, dataGridView3.Columns.Count + 1-1];
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count -1].ColumnWidth = 40;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count ].ColumnWidth = 15;
+                    worksheet.Cells[i + 2, dataGridView3.Columns.Count ].RowHeight = 84;
+                    Excel.Range range = (Excel.Range)worksheet.Cells[i + 2, dataGridView3.Columns.Count ];
                     Clipboard.SetImage(resized);
                     worksheet.Paste(range, resized);
+                    // wait for the paste operation to complete
+                    while (app.CutCopyMode != 0)
+                    {
+                        System.Threading.Thread.Sleep(100);
+                    }
+
+
                 }
+                app.Visible = true;
 
 
             }

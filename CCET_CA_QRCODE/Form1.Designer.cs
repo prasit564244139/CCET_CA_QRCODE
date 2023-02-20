@@ -161,6 +161,7 @@
             this.btn_EXCEL.TabIndex = 10;
             this.btn_EXCEL.Text = "EXCEL";
             this.btn_EXCEL.UseVisualStyleBackColor = false;
+            this.btn_EXCEL.Click += new System.EventHandler(this.btn_EXCEL_Click);
             // 
             // pic_LOGOUT
             // 

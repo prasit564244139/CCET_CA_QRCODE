@@ -71,8 +71,8 @@ namespace CCET_CA_QRCODE
                 txt_GEN.Text = txt_GEN.Text.Trim().Replace("'","");
                 txt_RAM.Text = txt_RAM.Text.Trim().Replace("'","");
                 QUERY_Data("INSERT INTO TBL_GG_STORE_TYPE (SPEC,RAM,USERNAME,INS_DT) VALUES ('" + txt_SPEC.Text + "/" + txt_GEN.Text + "','" + txt_RAM.Text.ToString() + "','" + txt_USER.Text.ToString() + "',GETDATE())","Insert");
+                QUERY_Data("SELECT * FROM TBL_GG_STORE_TYPE", "select");
 
-                
 
                 txt_SPEC.Clear();
                 txt_RAM.Clear();
@@ -88,6 +88,13 @@ namespace CCET_CA_QRCODE
             txt_USER.BackColor = Color.LimeGreen;
             QUERY_Data("SELECT * FROM TBL_GG_STORE_TYPE", "select");
             dataGridView1.DataSource = DT;
+        }
+
+        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            DataView dv = DT.DefaultView;
+            dv.RowFilter = string.Format("SPEC like '%{0}%'", textBox2.Text.Trim());
+            dataGridView1.DataSource = dv;
         }
     }
 }

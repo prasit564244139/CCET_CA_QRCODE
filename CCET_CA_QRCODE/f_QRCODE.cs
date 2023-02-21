@@ -206,14 +206,30 @@ namespace CCET_CA_QRCODE
                 PrintDocument p = new PrintDocument();
                 p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
                 {
-                    p.DocumentName = "22";
-                    e1.Graphics.DrawImage(pictureBox1.Image, 0, 0);
+                    e1.Graphics.DrawImage(pictureBox2.Image, 0, 0);
                 };
                 try
                 {
-                    p.Print();
+                    string defaultPrinterName = new PrinterSettings().PrinterName;
+                    if (defaultPrinterName == "Microsoft Print to PDF")
+                    {
+                        SaveFileDialog dialog1 = new SaveFileDialog();
+                        dialog1.Title = "Save file as...";
+                        dialog1.Filter = "All files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                        dialog1.FileName = textBox2.Text;
+                        dialog1.RestoreDirectory = true;
+                        if (dialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            MessageBox.Show(dialog1.FileName);
+                        }
+                    }
+                    else
+                    {
+                        p.Print();
+
+                    }
                 }
-                catch 
+                catch
                 {
                     //throw new Exception("Exception Occured While Printing", ex.ToString());
                     MessageBox.Show("Print Error.");
@@ -223,6 +239,7 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show("Please GenQR or enter value idqr");
             }
+
         }
     }
 }

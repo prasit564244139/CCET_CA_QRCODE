@@ -37,7 +37,7 @@ namespace CCET_CA_QRCODE
                 {
                     if (cmd.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show(respontext + " : Sucess..");
+                        //MessageBox.Show(respontext + " : Sucess..");
                     }
                     else
                     {
@@ -210,6 +210,7 @@ namespace CCET_CA_QRCODE
                 {
                     //MessageBox.Show(row.Cells["QR"].Value.ToString());
                     GEN_QR(row.Cells["QR"].Value.ToString());
+                    textBox2.Text = row.Cells["STATUS"].Value.ToString().Trim();
                     //More code here
                 }
 
@@ -356,9 +357,14 @@ namespace CCET_CA_QRCODE
             {
                 //MessageBox.Show(row.Cells["NAME"].Value.ToString());
                 String SN = row.Cells["NAME"].Value.ToString().Trim();
+                SQL = "INSERT INTO TBL_GG_STORELOG (NAME,KEY_MAC,STATUS,USERNAME,QR,ID_SPEC,INS_DT,LAST_UPD) ";
+                SQL += "SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(USERNAME)) AS USERNAME,RTRIM(LTRIM(QR)) AS QR,RTRIM(LTRIM(ID_SPEC)) AS ID_SPEC,RTRIM(LTRIM(INS_DT)) AS INS_DT,GETDATE() ";
+                SQL += "FROM TBL_GG_STORE  ";
+                SQL += "WHERE RTRIM(LTRIM(NAME)) = '" + SN + "' ";
+                QUERY_Data(SQL, "Insert");
                 SQL = "UPDATE TBL_GG_STORE ";
                 SQL += "SET STATUS = '"+textBox2.Text.Trim()+"' ";
-                SQL += "WHERE NAME = '" + row.Cells["NAME"].Value.ToString().Trim() + "' ";
+                SQL += "WHERE NAME = '" + SN + "' ";
                 QUERY_Data(SQL, "UPDATE");
                 textBox2.Text = "";
                 textBox1.Text = "";
@@ -372,6 +378,15 @@ namespace CCET_CA_QRCODE
                 //    GEN_QR(row.Cells["QR"].Value.ToString());
                 //    //More code here
                 //}
+
+                foreach (DataGridViewRow dr in dataGridView1.Rows)
+                {
+                    //MessageBox.Show(row.Cells["QR"].Value.ToString());
+                    GEN_QR(dr.Cells["QR"].Value.ToString());
+                    textBox2.Text = dr.Cells["STATUS"].Value.ToString().Trim();
+                    //More code here
+                }
+                button2.PerformClick();
                 textBox1.Focus();
             }
         }

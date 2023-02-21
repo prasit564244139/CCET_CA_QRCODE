@@ -187,7 +187,7 @@ namespace CCET_CA_QRCODE
                 Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                 //Qrgen = text;
                 QRCodeGenerator QR = new QRCodeGenerator();
-                QRCodeData data = QR.CreateQrCode(TextQR, QRCodeGenerator.ECCLevel.Q);
+                QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
                 QRCode code = new QRCode(data);
                 Insert(code.GetGraphic(5),pictureBox1);
                 //pictureBox1.Image = code.GetGraphic(5);

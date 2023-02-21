@@ -388,20 +388,23 @@ namespace CCET_CA_QRCODE
                 try
                 {
                     string defaultPrinterName = new PrinterSettings().PrinterName;
-
-                    // display the name of the default printer in a message box
-                    MessageBox.Show("The name of the default printer is: " + defaultPrinterName);
-                    SaveFileDialog dialog1 = new SaveFileDialog();
-                    dialog1.Title = "Save file as...";
-                    dialog1.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
-                    dialog1.FileName = "1";
-                    dialog1.RestoreDirectory = true;
-
-                    if (dialog1.ShowDialog() == DialogResult.OK)
+                    if(defaultPrinterName == "Microsoft Print to PDF")
                     {
-                        MessageBox.Show(dialog1.FileName);
+                        SaveFileDialog dialog1 = new SaveFileDialog();
+                        dialog1.Title = "Save file as...";
+                        dialog1.Filter = "All files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                        dialog1.FileName = dataGridView1.Rows[0].Cells[1].Value.ToString().Trim();
+                        dialog1.RestoreDirectory = true;
+                        if (dialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            MessageBox.Show(dialog1.FileName);
+                        }
                     }
-                    p.Print();
+                    else
+                    {
+                        p.Print();
+
+                    }
 
                 }
                 catch

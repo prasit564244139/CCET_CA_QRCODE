@@ -196,12 +196,13 @@ namespace CCET_CA_QRCODE
                 }
                 else
                 {
+
                     string qrtext = textBox1.Text.Trim().ToString().Replace("'", "");
                     qrtext = qrtext.Replace(Environment.NewLine, "@");
                     QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE QR = '" + qrtext + "'", "SELECT");
                     if (DT.Rows.Count > 0) { dataGridView1.DataSource = DT; textBox2.Text = DT.Rows[0]["STATUS"].ToString(); } else { textBox2.Clear(); }
-                    QUERY_Data("SELECT * FROM TBL_GG_STORELOG WHERE QR = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
-                    if (DT.Rows.Count > 0) { dataGridView2.DataSource = DT; }
+                    QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE QR = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
+                    if (DT.Rows.Count > 0) { dataGridView2.DataSource = DT2; }
                     textBox1.Clear();
                     textBox1.Focus();
                 }

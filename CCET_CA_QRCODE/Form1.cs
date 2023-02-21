@@ -184,7 +184,7 @@ namespace CCET_CA_QRCODE
                 // creating new Excelsheet in workbook  
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
                 // see the excel sheet behind the program  
-                app.Visible = true;
+                app.Visible = false;
                 // get the reference of first sheet. By default its name is Sheet1.  
                 // store its reference to worksheet  
                 worksheet = workbook.Sheets["Sheet1"];
@@ -192,18 +192,27 @@ namespace CCET_CA_QRCODE
                 // changing the name of active sheet  
                 worksheet.Name = "Exported from gridview";
                 // storing header part in Excel  
+
                 for (int i = 1; i < dataGridView1.Columns.Count + 1; i++)
                 {
                     worksheet.Cells[1, i] = dataGridView1.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                    worksheet.Cells[1, i].VerticalAlignment = XlHAlign.xlHAlignCenter;
+
                 }
                 // storing Each row and column value to excel sheet  
-                for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
                         worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1].HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        worksheet.Cells[i + 2, j + 1].VerticalAlignment = XlHAlign.xlHAlignCenter;
                     }
                 }
+                worksheet.Columns.AutoFit();
+                app.Visible = true;
                 // save the application  
                 //workbook.SaveAs("d:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 // Exit from the application  

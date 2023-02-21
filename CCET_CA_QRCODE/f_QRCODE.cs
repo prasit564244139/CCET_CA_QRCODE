@@ -206,6 +206,7 @@ namespace CCET_CA_QRCODE
                 PrintDocument p = new PrintDocument();
                 p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
                 {
+                    p.DocumentName = "22";
                     e1.Graphics.DrawImage(pictureBox1.Image, 0, 0);
                 };
                 try

@@ -49,6 +49,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -67,7 +68,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(23, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 50);
+            this.label1.Size = new System.Drawing.Size(60, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "QR :";
             // 
@@ -88,7 +89,7 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 287);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 50);
+            this.label2.Size = new System.Drawing.Size(132, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "LOCATION :";
             // 
@@ -97,7 +98,7 @@
             this.textBox2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.textBox2.Location = new System.Drawing.Point(189, 286);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 55);
+            this.textBox2.Size = new System.Drawing.Size(98, 46);
             this.textBox2.TabIndex = 3;
             // 
             // dataGridView1
@@ -201,7 +202,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 61);
             this.button2.TabIndex = 8;
-            this.button2.Text = "ALL";
+            this.button2.Text = "REFRESH";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -211,7 +212,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(852, 104);
+            this.button3.Location = new System.Drawing.Point(1413, 104);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 61);
             this.button3.TabIndex = 9;
@@ -226,7 +227,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(725, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(259, 81);
+            this.label3.Size = new System.Drawing.Size(194, 64);
             this.label3.TabIndex = 10;
             this.label3.Text = "LOCATION";
             // 
@@ -282,7 +283,7 @@
             this.checkBox1.ForeColor = System.Drawing.SystemColors.Control;
             this.checkBox1.Location = new System.Drawing.Point(32, 102);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(170, 43);
+            this.checkBox1.Size = new System.Drawing.Size(140, 38);
             this.checkBox1.TabIndex = 15;
             this.checkBox1.Text = "By PC NAME";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -297,11 +298,21 @@
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
+            this.textBox3.Location = new System.Drawing.Point(848, 112);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(540, 46);
+            this.textBox3.TabIndex = 17;
+            this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyUp);
+            // 
             // f_LINE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1607, 813);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button5);
@@ -359,5 +370,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

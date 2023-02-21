@@ -136,10 +136,7 @@ namespace CCET_CA_QRCODE
             dataGridView1.ForeColor = Color.Black;
             dataGridView2.ForeColor = Color.Black;
             dataGridView3.ForeColor = Color.Black;
-        }
 
-        public void button2_Click(object sender, EventArgs e)
-        {
             dataGridView3.DataSource = null;
             DT3.Clear();
             DT3.Columns.Clear();
@@ -171,6 +168,11 @@ namespace CCET_CA_QRCODE
                     }
                 }
             }
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+            
 
 
         }
@@ -311,7 +313,7 @@ namespace CCET_CA_QRCODE
                     }
                 }
                 // storing Each row and column value to excel sheet  
-                for (int i = 0; i < dataGridView3.Rows.Count - 1; i++)
+                for (int i = 0; i < dataGridView3.Rows.Count; i++)
                 {
                     for (int j = 0; j < dataGridView3.Columns.Count; j++)
                     {
@@ -433,6 +435,13 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show("Please GenQR or enter value idqr");
             }
+        }
+
+        private void textBox3_KeyUp(object sender, KeyEventArgs e)
+        {
+            DataView dv = DT3.DefaultView;
+            dv.RowFilter = string.Format("NAME like '%{0}%'", textBox3.Text.Trim());
+            dataGridView3.DataSource = dv;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

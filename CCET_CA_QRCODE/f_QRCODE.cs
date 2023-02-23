@@ -105,7 +105,13 @@ namespace CCET_CA_QRCODE
         {
             try
             {
-                GEN_QR();
+                if (!string.IsNullOrEmpty(txt_LOCATION.Text)&& !string.IsNullOrEmpty(textBox2.Text)&& !string.IsNullOrEmpty(comboBox1.Text) && !string.IsNullOrEmpty(comboBox2.Text))
+                {
+                    txt_LOCATION.Text = txt_LOCATION.Text.ToUpper();
+                    textBox2.Text = textBox2.Text.ToUpper();
+                    GEN_QR();
+                }
+                
                 //Insert();
             }
             catch (Exception ex)
@@ -140,7 +146,7 @@ namespace CCET_CA_QRCODE
             {
                 QUERY_Data("INSERT INTO TBL_GG_STORE " +
                 "(NAME,KEY_MAC,STATUS,USERNAME,QR,ID_SPEC,INS_DT,LAST_UPD) " +
-                "SELECT '"+name+"','"+key+"','store','"+ c_VALUES.c_USER + "','"+ TextQR + "',ID_SPEC,GETDATE(),GETDATE() " +
+                "SELECT '"+name+"','"+key+"','"+txt_LOCATION.Text.Trim()+"','"+ c_VALUES.c_USER + "','"+ TextQR + "',ID_SPEC,GETDATE(),GETDATE() " +
                 "FROM TBL_GG_STORE_TYPE WHERE RTRIM(LTRIM(SPEC)) = '"+spec+ "' AND RTRIM(LTRIM(RAM)) = '"+ sAry[1].Trim() + "' ", "Insert",image,picBox1);
             }
             catch(Exception ex)
@@ -158,6 +164,7 @@ namespace CCET_CA_QRCODE
                 textBox2.Text = "";
                 comboBox1.Text = "";
                 comboBox2.Text = "";
+                txt_LOCATION.Text = "";
                 textBox2.Focus();
             }
             catch (Exception ex)
@@ -177,6 +184,26 @@ namespace CCET_CA_QRCODE
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBox1.Focus();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txt_LOCATION.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txt_LOCATION_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                pictureBox3.Focus();
+            }
         }
 
         private void GEN_QR()

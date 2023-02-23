@@ -31,7 +31,7 @@ namespace CCET_CA_QRCODE
                 SqlCommand cmd = new SqlCommand(SQL, conn);
                 DT.Clear();
                 conn.Open();
-                DT.Load(cmd.ExecuteReader());
+                //DT.Load(cmd.ExecuteReader());
 
                 if (respontext == "Insert")
                 {
@@ -49,6 +49,28 @@ namespace CCET_CA_QRCODE
                     if (cmd.ExecuteNonQuery() > 0)
                     {
                         MessageBox.Show(respontext + " : Sucess..");
+                    }
+                    else
+                    {
+                        MessageBox.Show(respontext + "Fail..");
+                    }
+                }
+                else if (respontext == "DELETE")
+                {
+                    if (cmd.ExecuteNonQuery() > 0)
+                    {
+                        //MessageBox.Show(respontext + " : Sucess..");
+                    }
+                    else
+                    {
+                        //MessageBox.Show(respontext + "Fail..");
+                    }
+                }else if (respontext == "SELECT")
+                {
+                    DT.Load(cmd.ExecuteReader());
+                    if (DT.Rows.Count > 0)
+                    {
+                        //MessageBox.Show(respontext + " : Sucess..");
                     }
                     else
                     {
@@ -172,9 +194,43 @@ namespace CCET_CA_QRCODE
 
         public void button2_Click(object sender, EventArgs e)
         {
-            
+
+            re_all();
+
+        }
+        public void re_all()
+        {
+            dataGridView3.DataSource = null;
+            DT3.Clear();
+            DT3.Columns.Clear();
+            QUERY_Data3("SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(QR)) AS QR FROM TBL_GG_STORE", "SELECTDT3");
+            DT3.Columns.Add("test", typeof(Bitmap));
+
+            dataGridView3.DataSource = DT3;
 
 
+            foreach (DataRow dtRow in DT3.Rows)
+            {
+                // On all tables' columns
+                foreach (DataColumn column in DT3.Columns)
+                {
+                    string ColumnName = column.ColumnName;
+                    //MessageBox.Show(column.ColumnName.ToString());
+                    if (ColumnName == "QR")
+                    {
+                        //GEN_QRIMG(dtRow[column].ToString());
+
+                        TextQR = dtRow[column].ToString().Trim();
+                        Qrgen = TextQR.Replace("@", System.Environment.NewLine);
+                        //Qrgen = text;
+                        QRCodeGenerator QR = new QRCodeGenerator();
+                        QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
+                        QRCode code = new QRCode(data);
+                        //Insert(code.GetGraphic(5), pictureBox2);
+                        dtRow[4] = code.GetGraphic(5);
+                    }
+                }
+            }
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -442,6 +498,81 @@ namespace CCET_CA_QRCODE
             DataView dv = DT3.DefaultView;
             dv.RowFilter = string.Format("NAME like '%{0}%'", textBox3.Text.Trim());
             dataGridView3.DataSource = dv;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Confirm Delete ??", "Dialog Box Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        String SN = row.Cells["NAME"].Value.ToString().Trim();
+                        SQL = "DELETE FROM TBL_GG_STORE WHERE NAME = '" + SN + "'";
+                        QUERY_Data(SQL, "DELETE");
+                        SQL = "DELETE FROM TBL_GG_STORELOG WHERE NAME = '" + SN + "'";
+                        QUERY_Data(SQL, "DELETE");
+                        pictureBox2.Image = null;
+                        dataGridView1.DataSource = null;
+                        dataGridView2.DataSource = null;
+                        textBox2.Text = "";
+                        re_all();
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void pic_print_Click(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image != null)
+            {
+                PrintDocument p = new PrintDocument();
+                p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+                {
+                    e1.Graphics.DrawImage(pictureBox2.Image, 0, 0);
+                };
+                try
+                {
+                    string defaultPrinterName = new PrinterSettings().PrinterName;
+                    if (defaultPrinterName == "Microsoft Print to PDF")
+                    {
+                        SaveFileDialog dialog1 = new SaveFileDialog();
+                        dialog1.Title = "Save file as...";
+                        dialog1.Filter = "All files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                        dialog1.FileName = dataGridView1.Rows[0].Cells[1].Value.ToString().Trim();
+                        dialog1.RestoreDirectory = true;
+                        if (dialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            MessageBox.Show(dialog1.FileName);
+                        }
+                    }
+                    else
+                    {
+                        p.Print();
+
+                    }
+
+                }
+                catch
+                {
+                    //throw new Exception("Exception Occured While Printing", ex.ToString());
+                    MessageBox.Show("Print Error.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please GenQR or enter value idqr");
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

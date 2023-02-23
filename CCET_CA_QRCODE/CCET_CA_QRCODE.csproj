@@ -176,6 +176,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CA-TEAM-FACTORY4.ico" />
+    <None Include="Resources\delete.png" />
     <None Include="Resources\cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

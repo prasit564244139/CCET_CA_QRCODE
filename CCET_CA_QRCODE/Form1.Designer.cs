@@ -39,17 +39,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_SHOW_ALL = new System.Windows.Forms.Button();
             this.btn_EXCEL = new System.Windows.Forms.Button();
-            this.pic_LOGOUT = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pic_LOGOUT = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LOGOUT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnQR
@@ -167,37 +167,6 @@
             this.btn_EXCEL.UseVisualStyleBackColor = false;
             this.btn_EXCEL.Click += new System.EventHandler(this.btn_EXCEL_Click);
             // 
-            // pic_LOGOUT
-            // 
-            this.pic_LOGOUT.Image = global::CCET_CA_QRCODE.Properties.Resources.logout;
-            this.pic_LOGOUT.Location = new System.Drawing.Point(752, 12);
-            this.pic_LOGOUT.Name = "pic_LOGOUT";
-            this.pic_LOGOUT.Size = new System.Drawing.Size(95, 83);
-            this.pic_LOGOUT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_LOGOUT.TabIndex = 12;
-            this.pic_LOGOUT.TabStop = false;
-            this.pic_LOGOUT.Click += new System.EventHandler(this.pic_LOGOUT_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::CCET_CA_QRCODE.Properties.Resources.profile__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(219, 26);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(91, 82);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CCET_CA_QRCODE.Properties.Resources.CA_TEAM_FACTORY4;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 155);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -235,6 +204,37 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "EMP :";
             // 
+            // pic_LOGOUT
+            // 
+            this.pic_LOGOUT.Image = global::CCET_CA_QRCODE.Properties.Resources.logout;
+            this.pic_LOGOUT.Location = new System.Drawing.Point(752, 12);
+            this.pic_LOGOUT.Name = "pic_LOGOUT";
+            this.pic_LOGOUT.Size = new System.Drawing.Size(95, 83);
+            this.pic_LOGOUT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_LOGOUT.TabIndex = 12;
+            this.pic_LOGOUT.TabStop = false;
+            this.pic_LOGOUT.Click += new System.EventHandler(this.pic_LOGOUT_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::CCET_CA_QRCODE.Properties.Resources.profile__1_;
+            this.pictureBox2.Location = new System.Drawing.Point(219, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(91, 82);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CCET_CA_QRCODE.Properties.Resources.CA_TEAM_FACTORY4;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 155);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -256,15 +256,15 @@
             this.MinimumSize = new System.Drawing.Size(913, 835);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "INFOMATION V1.0";
+            this.Text = "INFOMATION V1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LOGOUT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

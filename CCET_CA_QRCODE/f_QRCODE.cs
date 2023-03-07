@@ -99,16 +99,24 @@ namespace CCET_CA_QRCODE
                 comboBox2.Items.Add(dtRow["SPEC"].ToString()+"@"+ dtRow["RAM"].ToString());
             }
 
+            SQL = "SELECT RTRIM(LTRIM(LOCATION)) AS LOCATION FROM TBL_GG_LOCATION ";
+            QUERY_Data(SQL, "SELECT", null, null);
+            foreach (DataRow dtRow in DT.Rows)
+            {
+                comboBox3.Items.Add(dtRow["LOCATION"].ToString());
+            }
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(txt_LOCATION.Text)&& !string.IsNullOrEmpty(textBox2.Text)&& !string.IsNullOrEmpty(comboBox1.Text) && !string.IsNullOrEmpty(comboBox2.Text))
+                if (!string.IsNullOrEmpty(comboBox1.Text)&& !string.IsNullOrEmpty(textBox2.Text)&& !string.IsNullOrEmpty(comboBox1.Text) && !string.IsNullOrEmpty(comboBox2.Text))
                 {
-                    txt_LOCATION.Text = txt_LOCATION.Text.ToUpper();
+                    comboBox1.Text = comboBox1.Text.ToUpper();
                     textBox2.Text = textBox2.Text.ToUpper();
+                    txt_MODEL.Text = txt_MODEL.Text.ToUpper();
                     GEN_QR();
                 }
                 
@@ -145,8 +153,8 @@ namespace CCET_CA_QRCODE
             try
             {
                 QUERY_Data("INSERT INTO TBL_GG_STORE " +
-                "(NAME,KEY_MAC,STATUS,USERNAME,QR,ID_SPEC,INS_DT,LAST_UPD) " +
-                "SELECT '"+name+"','"+key+"','"+txt_LOCATION.Text.Trim()+"','"+ c_VALUES.c_USER + "','"+ TextQR + "',ID_SPEC,GETDATE(),GETDATE() " +
+                "(NAME,KEY_MAC,STATUS,USERNAME,QR,INS_DT,LAST_UPD,MODEL) " +
+                "SELECT '"+name+"','"+key+"','"+comboBox1.Text.Trim()+"','"+ c_VALUES.c_USER + "','"+ TextQR + "',GETDATE(),GETDATE(),'"+txt_MODEL.Text.Trim()+"' " +
                 "FROM TBL_GG_STORE_TYPE WHERE RTRIM(LTRIM(SPEC)) = '"+spec+ "' AND RTRIM(LTRIM(RAM)) = '"+ sAry[1].Trim() + "' ", "Insert",image,picBox1);
             }
             catch(Exception ex)
@@ -164,7 +172,7 @@ namespace CCET_CA_QRCODE
                 textBox2.Text = "";
                 comboBox1.Text = "";
                 comboBox2.Text = "";
-                txt_LOCATION.Text = "";
+                comboBox1.Text = "";
                 textBox2.Focus();
             }
             catch (Exception ex)
@@ -190,7 +198,7 @@ namespace CCET_CA_QRCODE
         {
             try
             {
-                txt_LOCATION.Focus();
+                comboBox3.Focus();
             }
             catch (Exception ex)
             {
@@ -202,7 +210,23 @@ namespace CCET_CA_QRCODE
         {
             if (e.KeyCode == Keys.Enter)
             {
-                pictureBox3.Focus();
+                txt_MODEL.Focus();
+            }
+        }
+
+        private void txt_MODEL_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    pictureBox3.Focus();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

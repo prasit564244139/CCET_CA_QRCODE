@@ -32,7 +32,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,6 +51,9 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pic_print = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_MODEL = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -91,32 +93,24 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 292);
+            this.label2.Location = new System.Drawing.Point(12, 289);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(171, 50);
             this.label2.TabIndex = 2;
             this.label2.Text = "LOCATION :";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(189, 289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 55);
-            this.textBox2.TabIndex = 3;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 36);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 39);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(607, 148);
+            this.dataGridView1.Size = new System.Drawing.Size(607, 116);
             this.dataGridView1.TabIndex = 4;
             // 
             // button1
@@ -125,9 +119,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(301, 291);
+            this.button1.Location = new System.Drawing.Point(444, 336);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 52);
+            this.button1.Size = new System.Drawing.Size(211, 71);
             this.button1.TabIndex = 5;
             this.button1.Text = "UPDATE";
             this.button1.UseVisualStyleBackColor = false;
@@ -138,9 +132,9 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(20, 547);
+            this.groupBox1.Location = new System.Drawing.Point(20, 591);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(635, 252);
+            this.groupBox1.Size = new System.Drawing.Size(635, 208);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "HISTORY";
@@ -151,11 +145,11 @@
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 37);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 38);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(607, 198);
+            this.dataGridView2.Size = new System.Drawing.Size(607, 153);
             this.dataGridView2.TabIndex = 5;
             // 
             // groupBox2
@@ -163,9 +157,9 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(20, 344);
+            this.groupBox2.Location = new System.Drawing.Point(20, 413);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(635, 197);
+            this.groupBox2.Size = new System.Drawing.Size(635, 172);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "STATUS";
@@ -284,7 +278,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::CCET_CA_QRCODE.Properties.Resources.delete;
-            this.pictureBox4.Location = new System.Drawing.Point(549, 256);
+            this.pictureBox4.Location = new System.Drawing.Point(537, 230);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(87, 83);
@@ -305,7 +299,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(318, 104);
+            this.pictureBox2.Location = new System.Drawing.Point(316, 102);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(194, 173);
@@ -327,7 +321,7 @@
             // pic_print
             // 
             this.pic_print.Image = global::CCET_CA_QRCODE.Properties.Resources.printer;
-            this.pic_print.Location = new System.Drawing.Point(537, 122);
+            this.pic_print.Location = new System.Drawing.Point(537, 112);
             this.pic_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pic_print.Name = "pic_print";
             this.pic_print.Size = new System.Drawing.Size(118, 103);
@@ -336,11 +330,42 @@
             this.pic_print.TabStop = false;
             this.pic_print.Click += new System.EventHandler(this.pic_print_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(53, 351);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(130, 50);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "MODEL :";
+            // 
+            // txt_MODEL
+            // 
+            this.txt_MODEL.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
+            this.txt_MODEL.Location = new System.Drawing.Point(189, 352);
+            this.txt_MODEL.Name = "txt_MODEL";
+            this.txt_MODEL.Size = new System.Drawing.Size(231, 55);
+            this.txt_MODEL.TabIndex = 21;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(189, 286);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(231, 58);
+            this.comboBox1.TabIndex = 22;
+            // 
             // f_LINE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(1607, 813);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txt_MODEL);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.pic_print);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.textBox3);
@@ -357,7 +382,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -386,7 +410,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -406,5 +429,8 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pic_print;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_MODEL;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

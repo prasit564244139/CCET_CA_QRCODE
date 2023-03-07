@@ -155,6 +155,12 @@ namespace CCET_CA_QRCODE
 
         private void f_LINE_Load(object sender, EventArgs e)
         {
+            SQL = "SELECT RTRIM(LTRIM(LOCATION)) AS LOCATION FROM TBL_GG_LOCATION ";
+            QUERY_Data(SQL, "SELECT");
+            foreach (DataRow dtRow in DT.Rows)
+            {
+                comboBox1.Items.Add(dtRow["LOCATION"].ToString());
+            }
             dataGridView1.ForeColor = Color.Black;
             dataGridView2.ForeColor = Color.Black;
             dataGridView3.ForeColor = Color.Black;
@@ -162,7 +168,7 @@ namespace CCET_CA_QRCODE
             dataGridView3.DataSource = null;
             DT3.Clear();
             DT3.Columns.Clear();
-            QUERY_Data3("SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(QR)) AS QR FROM TBL_GG_STORE", "SELECTDT3");
+            QUERY_Data3("SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(MODEL)) AS MODEL,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(QR)) AS QR FROM TBL_GG_STORE", "SELECTDT3");
             DT3.Columns.Add("test", typeof(Bitmap));
 
             dataGridView3.DataSource = DT3;
@@ -186,7 +192,7 @@ namespace CCET_CA_QRCODE
                         QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
                         QRCode code = new QRCode(data);
                         //Insert(code.GetGraphic(5), pictureBox2);
-                        dtRow[4] = code.GetGraphic(5);
+                        dtRow[5] = code.GetGraphic(5);
                     }
                 }
             }
@@ -203,7 +209,7 @@ namespace CCET_CA_QRCODE
             dataGridView3.DataSource = null;
             DT3.Clear();
             DT3.Columns.Clear();
-            QUERY_Data3("SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(QR)) AS QR FROM TBL_GG_STORE", "SELECTDT3");
+            QUERY_Data3("SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(MODEL)) AS MODEL,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(QR)) AS QR FROM TBL_GG_STORE", "SELECTDT3");
             DT3.Columns.Add("test", typeof(Bitmap));
 
             dataGridView3.DataSource = DT3;
@@ -227,7 +233,7 @@ namespace CCET_CA_QRCODE
                         QRCodeData data = QR.CreateQrCode(Qrgen, QRCodeGenerator.ECCLevel.Q);
                         QRCode code = new QRCode(data);
                         //Insert(code.GetGraphic(5), pictureBox2);
-                        dtRow[4] = code.GetGraphic(5);
+                        dtRow[5] = code.GetGraphic(5);
                     }
                 }
             }
@@ -258,9 +264,16 @@ namespace CCET_CA_QRCODE
                     string qrtext = textBox1.Text.Trim().ToString().Replace("'", "");
                     qrtext = qrtext.Replace(Environment.NewLine, "@");
                     QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE QR = '" + qrtext + "'", "SELECT");
-                    if (DT.Rows.Count > 0) { dataGridView1.DataSource = DT; textBox2.Text = DT.Rows[0]["STATUS"].ToString(); } else { textBox2.Clear(); }
+                    if (DT.Rows.Count > 0) {
+                        dataGridView1.DataSource = DT;
+                        comboBox1.Text = DT.Rows[0]["STATUS"].ToString();
+                    } else {
+                        comboBox1.Text = "";
+                    }
                     QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE QR = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
-                    if (DT.Rows.Count > 0) { dataGridView2.DataSource = DT2; }
+                    if (DT.Rows.Count > 0) {
+                        dataGridView2.DataSource = DT2;
+                    }
                     textBox1.Clear();
                     textBox1.Focus();
                 }
@@ -269,7 +282,8 @@ namespace CCET_CA_QRCODE
                 {
                     //MessageBox.Show(row.Cells["QR"].Value.ToString());
                     GEN_QR(row.Cells["QR"].Value.ToString());
-                    textBox2.Text = row.Cells["STATUS"].Value.ToString().Trim();
+                    comboBox1.Text = row.Cells["STATUS"].Value.ToString().Trim();
+                    txt_MODEL.Text = row.Cells["MODEL"].Value.ToString().Trim();
                     //More code here
                 }
 
@@ -292,7 +306,7 @@ namespace CCET_CA_QRCODE
         {
             try
             {
-                //TextQR = textBox1.Text + "@" + textBox2.Text.Trim() + "@" + textBox3.Text.Trim();
+                //TextQR = textBox1.Text + "@" + comboBox1.Text.Trim() + "@" + textBox3.Text.Trim();
                 TextQR = txtQR.Trim();
                 Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                 //Qrgen = text;
@@ -314,7 +328,7 @@ namespace CCET_CA_QRCODE
             try
             {
                 pictureBox2 = new PictureBox();
-                //TextQR = textBox1.Text + "@" + textBox2.Text.Trim() + "@" + textBox3.Text.Trim();
+                //TextQR = textBox1.Text + "@" + comboBox1.Text.Trim() + "@" + textBox3.Text.Trim();
                 TextQR = txtQR.Trim();
                 Qrgen = TextQR.Replace("@", System.Environment.NewLine);
                 //Qrgen = text;
@@ -416,16 +430,16 @@ namespace CCET_CA_QRCODE
             {
                 //MessageBox.Show(row.Cells["NAME"].Value.ToString());
                 String SN = row.Cells["NAME"].Value.ToString().Trim();
-                SQL = "INSERT INTO TBL_GG_STORELOG (NAME,KEY_MAC,STATUS,USERNAME,QR,ID_SPEC,INS_DT,LAST_UPD) ";
-                SQL += "SELECT RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(USERNAME)) AS USERNAME,RTRIM(LTRIM(QR)) AS QR,RTRIM(LTRIM(ID_SPEC)) AS ID_SPEC,RTRIM(LTRIM(INS_DT)) AS INS_DT,GETDATE() ";
+                SQL = "INSERT INTO TBL_GG_STORELOG (NAME,KEY_MAC,STATUS,USERNAME,QR,INS_DT,LAST_UPD,MODEL) ";
+                SQL += "SELECT  ,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(USERNAME)) AS USERNAME,RTRIM(LTRIM(QR)) AS QR,RTRIM(LTRIM(INS_DT)) AS INS_DT,GETDATE(),RTRIM(LTRIM(MODEL)) AS MODEL ";
                 SQL += "FROM TBL_GG_STORE  ";
                 SQL += "WHERE RTRIM(LTRIM(NAME)) = '" + SN + "' ";
                 QUERY_Data(SQL, "Insert");
                 SQL = "UPDATE TBL_GG_STORE ";
-                SQL += "SET STATUS = '"+textBox2.Text.Trim()+"' ";
+                SQL += "SET STATUS = '"+comboBox1.Text.Trim()+"',MODEL = '"+ txt_MODEL.Text.Trim() + "' ";
                 SQL += "WHERE NAME = '" + SN + "' ";
                 QUERY_Data(SQL, "UPDATE");
-                textBox2.Text = "";
+                comboBox1.Text = "";
                 textBox1.Text = "";
                 QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + SN + "'", "SELECT");
                 dataGridView1.DataSource = DT;
@@ -442,7 +456,7 @@ namespace CCET_CA_QRCODE
                 {
                     //MessageBox.Show(row.Cells["QR"].Value.ToString());
                     GEN_QR(dr.Cells["QR"].Value.ToString());
-                    textBox2.Text = dr.Cells["STATUS"].Value.ToString().Trim();
+                    comboBox1.Text = dr.Cells["STATUS"].Value.ToString().Trim();
                     //More code here
                 }
                 button2.PerformClick();
@@ -517,7 +531,8 @@ namespace CCET_CA_QRCODE
                         pictureBox2.Image = null;
                         dataGridView1.DataSource = null;
                         dataGridView2.DataSource = null;
-                        textBox2.Text = "";
+                        comboBox1.Text = "";
+                        txt_MODEL.Text = "";
                         re_all();
                     }
                 }
@@ -528,10 +543,10 @@ namespace CCET_CA_QRCODE
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
         }
-
+            
         private void pic_print_Click(object sender, EventArgs e)
         {
             if (pictureBox2.Image != null)

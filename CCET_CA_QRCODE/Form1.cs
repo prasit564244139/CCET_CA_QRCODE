@@ -71,9 +71,9 @@ namespace CCET_CA_QRCODE
                 lbl_USER.Text = c_VALUES.c_USER;
                 DT.Clear();
                 SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
-                SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
-                SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
-                SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+                SQL += "RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+                SQL += "FROM TBL_GG_STORE A";
+                //SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
                 QUERY_Data(SQL);
                 dataGridView1.DataSource = DT;
                 textBox1.Focus();
@@ -97,9 +97,9 @@ namespace CCET_CA_QRCODE
                     lbl_USER.Text = c_VALUES.c_USER;
                     DT.Clear();
                     SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
-                    SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
-                    SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
-                    SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+                    SQL += "RTRIM(LTRIM(A.QR)) AS QR,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+                    SQL += "FROM TBL_GG_STORE A";
+                    //SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
                     QUERY_Data(SQL);
                     dataGridView1.DataSource = DT;
                     textBox1.Focus();
@@ -162,9 +162,8 @@ namespace CCET_CA_QRCODE
             DT.Columns.Clear();
             DT.Clear();
             SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
-            SQL += "RTRIM(LTRIM(B.SPEC)) AS SPEC,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
-            SQL += "FROM TBL_GG_STORE A,TBL_GG_STORE_TYPE B ";
-            SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+            SQL += "RTRIM(LTRIM(A.QR)) AS QR,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+            SQL += "FROM TBL_GG_STORE A";
             QUERY_Data(SQL);
             dataGridView1.DataSource = DT;
         }
@@ -217,6 +216,19 @@ namespace CCET_CA_QRCODE
                 //workbook.SaveAs("d:\\output.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 // Exit from the application  
                 //app.Quit();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                f_STATUS f_STATUS = new f_STATUS();
+                f_STATUS.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

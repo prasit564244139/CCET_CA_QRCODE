@@ -91,6 +91,12 @@
     <Compile Include="f_QRCODE.Designer.cs">
       <DependentUpon>f_QRCODE.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_STATUS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_STATUS.Designer.cs">
+      <DependentUpon>f_STATUS.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_TYPE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_QRCODE.resx">
       <DependentUpon>f_QRCODE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_STATUS.resx">
+      <DependentUpon>f_STATUS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_TYPE.resx">
       <DependentUpon>f_TYPE.cs</DependentUpon>
@@ -176,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CA-TEAM-FACTORY4.ico" />
+    <None Include="Resources\plus %281%29.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\cancel.png" />
   </ItemGroup>

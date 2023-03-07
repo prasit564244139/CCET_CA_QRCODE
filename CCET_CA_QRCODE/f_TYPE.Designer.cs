@@ -44,6 +44,7 @@
             this.txt_USER = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -77,7 +78,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(448, 304);
+            this.dataGridView1.Size = new System.Drawing.Size(448, 306);
             this.dataGridView1.TabIndex = 2;
             // 
             // btn_ADD
@@ -86,9 +87,9 @@
             this.btn_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_ADD.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ADD.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_ADD.Location = new System.Drawing.Point(69, 349);
+            this.btn_ADD.Location = new System.Drawing.Point(12, 346);
             this.btn_ADD.Name = "btn_ADD";
-            this.btn_ADD.Size = new System.Drawing.Size(170, 72);
+            this.btn_ADD.Size = new System.Drawing.Size(123, 62);
             this.btn_ADD.TabIndex = 3;
             this.btn_ADD.Text = "ADD";
             this.btn_ADD.UseVisualStyleBackColor = false;
@@ -99,7 +100,7 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(325, 12);
+            this.panel1.Location = new System.Drawing.Point(322, 20);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(479, 396);
             this.panel1.TabIndex = 4;
@@ -206,11 +207,26 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(156, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 62);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "UPDATE";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // f_TYPE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(825, 445);
+            this.ClientSize = new System.Drawing.Size(817, 428);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txt_USER);
@@ -224,8 +240,6 @@
             this.Controls.Add(this.txt_SPEC);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(843, 492);
-            this.MinimumSize = new System.Drawing.Size(843, 492);
             this.Name = "f_TYPE";
             this.Text = "ADD SPEC";
             this.Load += new System.EventHandler(this.f_TYPE_Load);
@@ -255,5 +269,6 @@
         private System.Windows.Forms.TextBox txt_USER;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
     }
 }

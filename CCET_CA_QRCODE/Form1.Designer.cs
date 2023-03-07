@@ -45,6 +45,7 @@
             this.pic_LOGOUT = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LOGOUT)).BeginInit();
@@ -58,9 +59,9 @@
             this.btnQR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQR.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.btnQR.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQR.Location = new System.Drawing.Point(371, 125);
+            this.btnQR.Location = new System.Drawing.Point(376, 129);
             this.btnQR.Name = "btnQR";
-            this.btnQR.Size = new System.Drawing.Size(156, 56);
+            this.btnQR.Size = new System.Drawing.Size(150, 56);
             this.btnQR.TabIndex = 0;
             this.btnQR.Text = "QRCODE";
             this.btnQR.UseVisualStyleBackColor = false;
@@ -97,7 +98,7 @@
             this.btTYPE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btTYPE.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTYPE.ForeColor = System.Drawing.SystemColors.Control;
-            this.btTYPE.Location = new System.Drawing.Point(219, 125);
+            this.btTYPE.Location = new System.Drawing.Point(19, 129);
             this.btTYPE.Name = "btTYPE";
             this.btTYPE.Size = new System.Drawing.Size(140, 56);
             this.btTYPE.TabIndex = 2;
@@ -111,11 +112,11 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(542, 125);
+            this.button1.Location = new System.Drawing.Point(550, 129);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 56);
+            this.button1.Size = new System.Drawing.Size(147, 56);
             this.button1.TabIndex = 3;
-            this.button1.Text = "LOCATION";
+            this.button1.Text = "STATUS";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -159,7 +160,7 @@
             this.btn_EXCEL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EXCEL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_EXCEL.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_EXCEL.Location = new System.Drawing.Point(696, 125);
+            this.btn_EXCEL.Location = new System.Drawing.Point(717, 129);
             this.btn_EXCEL.Name = "btn_EXCEL";
             this.btn_EXCEL.Size = new System.Drawing.Size(156, 56);
             this.btn_EXCEL.TabIndex = 10;
@@ -228,18 +229,33 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CCET_CA_QRCODE.Properties.Resources.CA_TEAM_FACTORY4;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(181, 155);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(184, 129);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(168, 56);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "INFORMATION";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(895, 788);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pic_LOGOUT);
@@ -256,7 +272,7 @@
             this.MinimumSize = new System.Drawing.Size(913, 835);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "INFOMATION V1.1";
+            this.Text = "INFOMATION V1.2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -286,6 +302,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

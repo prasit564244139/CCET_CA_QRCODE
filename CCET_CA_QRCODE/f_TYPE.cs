@@ -49,6 +49,36 @@ namespace CCET_CA_QRCODE
                 conn.Close();
             }
         }
+
+        static void QUERY_UPDATE(String SQL, String respontext)
+        {
+            try
+            {
+                conn.ConnectionString = "Data Source=10.51.0.145;Initial Catalog=mes;User ID=calcomp;Password=calcomp";
+                SqlCommand cmd = new SqlCommand(SQL, conn);
+                conn.Open();
+                if (respontext == "UPDATE")
+                {
+                    int respon = cmd.ExecuteNonQuery();
+                    if (respon > 0)
+                    {
+                        MessageBox.Show(respontext + " : Sucess..");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail..");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
         public f_TYPE()
         {
             InitializeComponent();
@@ -127,6 +157,11 @@ namespace CCET_CA_QRCODE
             {
                 btn_ADD.PerformClick();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

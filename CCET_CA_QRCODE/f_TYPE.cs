@@ -15,6 +15,7 @@ namespace CCET_CA_QRCODE
     {
         static DataTable DT = new DataTable();
         static SqlConnection conn = new SqlConnection();
+        static String SQL;
         static void QUERY_Data(String SQL,String respontext)
         {
             try
@@ -29,6 +30,17 @@ namespace CCET_CA_QRCODE
                     if (respon > 0)
                     {
                         MessageBox.Show(respontext + " : Sucess..");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Fail..");
+                    }
+                }else if (respontext == "UPDATE")
+                {
+                    int respon = cmd.ExecuteNonQuery();
+                    if (respon > 0)
+                    {
+                        //MessageBox.Show(respontext + " : Sucess..");
                     }
                     else
                     {
@@ -161,7 +173,37 @@ namespace CCET_CA_QRCODE
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                SQL = "UPDATE TBL_GG_STORE_TYPE ";
+                SQL += "SET SPEC = '" + txt_SPEC.Text + "_" + txt_GEN.Text + "',RAM = '" + txt_RAM.Text.Trim() + "' ,USERNAME = '" + txt_USER.Text.Trim() + "',INS_DT = GETDATE() ";
+                SQL += "WHERE ID_SPEC = '" + txt_ID.Text.Trim() + "' ";
+                QUERY_UPDATE(SQL, "UPDATE");
+                QUERY_Data("SELECT * FROM TBL_GG_STORE_TYPE", "select");
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = DT;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txt_ID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString().Trim();
+                string[] sAry = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString().Trim().Split('_');
+                txt_SPEC.Text = sAry[0].Trim();
+                txt_GEN.Text = sAry[1].Trim();
+                txt_RAM.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString().Trim();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

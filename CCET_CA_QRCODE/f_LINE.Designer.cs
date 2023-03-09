@@ -46,25 +46,29 @@
             this.button5 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_MODEL = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pic_print = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pic_print = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_MODEL = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_NAME = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_print)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_print)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,18 +88,18 @@
             this.textBox1.Location = new System.Drawing.Point(106, 154);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 71);
+            this.textBox1.Size = new System.Drawing.Size(192, 50);
             this.textBox1.TabIndex = 1;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 289);
+            this.label2.Location = new System.Drawing.Point(39, 347);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 50);
+            this.label2.Size = new System.Drawing.Size(114, 36);
             this.label2.TabIndex = 2;
             this.label2.Text = "LOCATION :";
             // 
@@ -119,7 +123,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(444, 336);
+            this.button1.Location = new System.Drawing.Point(444, 371);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 71);
             this.button1.TabIndex = 5;
@@ -132,7 +136,7 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(20, 591);
+            this.groupBox1.Location = new System.Drawing.Point(20, 626);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(635, 208);
             this.groupBox1.TabIndex = 6;
@@ -145,7 +149,7 @@
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 38);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 39);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 24;
@@ -157,7 +161,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(20, 413);
+            this.groupBox2.Location = new System.Drawing.Point(20, 448);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(635, 172);
             this.groupBox2.TabIndex = 7;
@@ -172,7 +176,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(676, 168);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(901, 631);
+            this.groupBox3.Size = new System.Drawing.Size(901, 666);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ALL INFOMATION";
@@ -187,7 +191,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(859, 574);
+            this.dataGridView3.Size = new System.Drawing.Size(859, 608);
             this.dataGridView3.TabIndex = 6;
             // 
             // button2
@@ -210,7 +214,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1413, 104);
+            this.button3.Location = new System.Drawing.Point(1407, 110);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 61);
             this.button3.TabIndex = 9;
@@ -231,7 +235,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(106, 230);
+            this.button4.Location = new System.Drawing.Point(106, 219);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(192, 47);
             this.button4.TabIndex = 12;
@@ -271,17 +275,69 @@
             this.textBox3.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
             this.textBox3.Location = new System.Drawing.Point(848, 112);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(540, 55);
+            this.textBox3.Size = new System.Drawing.Size(419, 55);
             this.textBox3.TabIndex = 17;
             this.textBox3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyUp);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(67, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 36);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "MODEL :";
+            // 
+            // txt_MODEL
+            // 
+            this.txt_MODEL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MODEL.Location = new System.Drawing.Point(167, 399);
+            this.txt_MODEL.Name = "txt_MODEL";
+            this.txt_MODEL.Size = new System.Drawing.Size(231, 43);
+            this.txt_MODEL.TabIndex = 21;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(167, 344);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(231, 44);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::CCET_CA_QRCODE.Properties.Resources.rj45;
+            this.pictureBox5.Location = new System.Drawing.Point(1290, 88);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(87, 83);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 23;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // pic_print
+            // 
+            this.pic_print.Image = global::CCET_CA_QRCODE.Properties.Resources.printer;
+            this.pic_print.Location = new System.Drawing.Point(537, 125);
+            this.pic_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pic_print.Name = "pic_print";
+            this.pic_print.Size = new System.Drawing.Size(118, 103);
+            this.pic_print.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_print.TabIndex = 19;
+            this.pic_print.TabStop = false;
+            this.pic_print.Click += new System.EventHandler(this.pic_print_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::CCET_CA_QRCODE.Properties.Resources.delete;
-            this.pictureBox4.Location = new System.Drawing.Point(537, 230);
+            this.pictureBox4.Location = new System.Drawing.Point(537, 254);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(87, 83);
+            this.pictureBox4.Size = new System.Drawing.Size(118, 99);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 18;
             this.pictureBox4.TabStop = false;
@@ -289,7 +345,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(1165, 50);
+            this.pictureBox3.Location = new System.Drawing.Point(1501, 4);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(76, 95);
@@ -299,10 +355,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(316, 102);
+            this.pictureBox2.Location = new System.Drawing.Point(326, 104);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(194, 173);
+            this.pictureBox2.Size = new System.Drawing.Size(183, 164);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -318,51 +374,33 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // pic_print
+            // label5
             // 
-            this.pic_print.Image = global::CCET_CA_QRCODE.Properties.Resources.printer;
-            this.pic_print.Location = new System.Drawing.Point(537, 112);
-            this.pic_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pic_print.Name = "pic_print";
-            this.pic_print.Size = new System.Drawing.Size(118, 103);
-            this.pic_print.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_print.TabIndex = 19;
-            this.pic_print.TabStop = false;
-            this.pic_print.Click += new System.EventHandler(this.pic_print_Click);
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(78, 289);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 36);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "NAME :";
             // 
-            // label4
+            // txt_NAME
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(53, 351);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 50);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "MODEL :";
-            // 
-            // txt_MODEL
-            // 
-            this.txt_MODEL.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
-            this.txt_MODEL.Location = new System.Drawing.Point(189, 352);
-            this.txt_MODEL.Name = "txt_MODEL";
-            this.txt_MODEL.Size = new System.Drawing.Size(231, 55);
-            this.txt_MODEL.TabIndex = 21;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 286);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 58);
-            this.comboBox1.TabIndex = 22;
+            this.txt_NAME.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NAME.Location = new System.Drawing.Point(167, 286);
+            this.txt_NAME.Name = "txt_NAME";
+            this.txt_NAME.Size = new System.Drawing.Size(231, 43);
+            this.txt_NAME.TabIndex = 25;
             // 
             // f_LINE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(1607, 813);
+            this.ClientSize = new System.Drawing.Size(1607, 846);
+            this.Controls.Add(this.txt_NAME);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.txt_MODEL);
             this.Controls.Add(this.label4);
@@ -395,11 +433,12 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_print)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_print)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,5 +471,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_MODEL;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_NAME;
     }
 }

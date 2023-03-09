@@ -154,7 +154,7 @@ namespace CCET_CA_QRCODE
             {
                 QUERY_Data("INSERT INTO TBL_GG_STORE " +
                 "(NAME,KEY_MAC,STATUS,USERNAME,QR,INS_DT,LAST_UPD,MODEL) " +
-                "SELECT '"+name+"','"+key+"','"+comboBox1.Text.Trim()+"','"+ c_VALUES.c_USER + "','"+ TextQR + "',GETDATE(),GETDATE(),'"+txt_MODEL.Text.Trim()+"' " +
+                "SELECT '"+name+"','"+key+"','"+comboBox3.Text.Trim()+"','"+ c_VALUES.c_USER + "','"+ TextQR + "',GETDATE(),GETDATE(),'"+txt_MODEL.Text.Trim()+"' " +
                 "FROM TBL_GG_STORE_TYPE WHERE RTRIM(LTRIM(SPEC)) = '"+spec+ "' AND RTRIM(LTRIM(RAM)) = '"+ sAry[1].Trim() + "' ", "Insert",image,picBox1);
             }
             catch(Exception ex)

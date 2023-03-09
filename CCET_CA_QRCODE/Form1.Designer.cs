@@ -42,10 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.pic_LOGOUT = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LOGOUT)).BeginInit();
@@ -59,7 +59,7 @@
             this.btnQR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQR.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.btnQR.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQR.Location = new System.Drawing.Point(376, 129);
+            this.btnQR.Location = new System.Drawing.Point(379, 129);
             this.btnQR.Name = "btnQR";
             this.btnQR.Size = new System.Drawing.Size(150, 56);
             this.btnQR.TabIndex = 0;
@@ -98,7 +98,7 @@
             this.btTYPE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btTYPE.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTYPE.ForeColor = System.Drawing.SystemColors.Control;
-            this.btTYPE.Location = new System.Drawing.Point(19, 129);
+            this.btTYPE.Location = new System.Drawing.Point(26, 129);
             this.btTYPE.Name = "btTYPE";
             this.btTYPE.Size = new System.Drawing.Size(140, 56);
             this.btTYPE.TabIndex = 2;
@@ -112,7 +112,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(550, 129);
+            this.button1.Location = new System.Drawing.Point(548, 129);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 56);
             this.button1.TabIndex = 3;
@@ -160,7 +160,7 @@
             this.btn_EXCEL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EXCEL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_EXCEL.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_EXCEL.Location = new System.Drawing.Point(717, 129);
+            this.btn_EXCEL.Location = new System.Drawing.Point(714, 129);
             this.btn_EXCEL.Name = "btn_EXCEL";
             this.btn_EXCEL.Size = new System.Drawing.Size(156, 56);
             this.btn_EXCEL.TabIndex = 10;
@@ -205,10 +205,24 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "EMP :";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(188, 129);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(168, 56);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "INFORMATION";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // pic_LOGOUT
             // 
             this.pic_LOGOUT.Image = global::CCET_CA_QRCODE.Properties.Resources.logout;
-            this.pic_LOGOUT.Location = new System.Drawing.Point(752, 12);
+            this.pic_LOGOUT.Location = new System.Drawing.Point(752, 22);
             this.pic_LOGOUT.Name = "pic_LOGOUT";
             this.pic_LOGOUT.Size = new System.Drawing.Size(95, 83);
             this.pic_LOGOUT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -236,20 +250,6 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(184, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(168, 56);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "INFORMATION";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -272,7 +272,7 @@
             this.MinimumSize = new System.Drawing.Size(913, 835);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "INFOMATION V1.2";
+            this.Text = "INFOMATION V1.41";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

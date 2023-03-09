@@ -93,6 +93,16 @@ namespace CCET_CA_QRCODE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lan {
+            get {
+                object obj = ResourceManager.GetObject("lan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap location {
             get {
                 object obj = ResourceManager.GetObject("location", resourceCulture);
@@ -176,6 +186,16 @@ namespace CCET_CA_QRCODE.Properties {
         internal static System.Drawing.Bitmap qr_code {
             get {
                 object obj = ResourceManager.GetObject("qr-code", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rj45 {
+            get {
+                object obj = ResourceManager.GetObject("rj45", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

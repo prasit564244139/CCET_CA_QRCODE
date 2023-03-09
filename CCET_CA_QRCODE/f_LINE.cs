@@ -29,7 +29,9 @@ namespace CCET_CA_QRCODE
             {
                 conn.ConnectionString = "Data Source=10.51.0.145;Initial Catalog=mes;User ID=calcomp;Password=calcomp";
                 SqlCommand cmd = new SqlCommand(SQL, conn);
+                DT.Columns.Clear();
                 DT.Clear();
+                conn.Close();
                 conn.Open();
                 //DT.Load(cmd.ExecuteReader());
 
@@ -155,6 +157,7 @@ namespace CCET_CA_QRCODE
 
         private void f_LINE_Load(object sender, EventArgs e)
         {
+            comboBox1.Items.Clear();
             SQL = "SELECT RTRIM(LTRIM(LOCATION)) AS LOCATION FROM TBL_GG_LOCATION ";
             QUERY_Data(SQL, "SELECT");
             foreach (DataRow dtRow in DT.Rows)
@@ -200,7 +203,7 @@ namespace CCET_CA_QRCODE
 
         public void button2_Click(object sender, EventArgs e)
         {
-
+            textBox3.Text = "";
             re_all();
 
         }
@@ -284,6 +287,7 @@ namespace CCET_CA_QRCODE
                     GEN_QR(row.Cells["QR"].Value.ToString());
                     comboBox1.Text = row.Cells["STATUS"].Value.ToString().Trim();
                     txt_MODEL.Text = row.Cells["MODEL"].Value.ToString().Trim();
+                    txt_NAME.Text = row.Cells["NAME"].Value.ToString().Trim();
                     //More code here
                 }
 
@@ -431,19 +435,19 @@ namespace CCET_CA_QRCODE
                 //MessageBox.Show(row.Cells["NAME"].Value.ToString());
                 String SN = row.Cells["NAME"].Value.ToString().Trim();
                 SQL = "INSERT INTO TBL_GG_STORELOG (NAME,KEY_MAC,STATUS,USERNAME,QR,INS_DT,LAST_UPD,MODEL) ";
-                SQL += "SELECT  ,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(USERNAME)) AS USERNAME,RTRIM(LTRIM(QR)) AS QR,RTRIM(LTRIM(INS_DT)) AS INS_DT,GETDATE(),RTRIM(LTRIM(MODEL)) AS MODEL ";
+                SQL += "SELECT  RTRIM(LTRIM(NAME)) AS NAME,RTRIM(LTRIM(KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(STATUS)) AS STATUS,RTRIM(LTRIM(USERNAME)) AS USERNAME,RTRIM(LTRIM(QR)) AS QR,RTRIM(LTRIM(INS_DT)) AS INS_DT,GETDATE(),RTRIM(LTRIM(MODEL)) AS MODEL ";
                 SQL += "FROM TBL_GG_STORE  ";
                 SQL += "WHERE RTRIM(LTRIM(NAME)) = '" + SN + "' ";
                 QUERY_Data(SQL, "Insert");
                 SQL = "UPDATE TBL_GG_STORE ";
-                SQL += "SET STATUS = '"+comboBox1.Text.Trim()+"',MODEL = '"+ txt_MODEL.Text.Trim() + "' ";
+                SQL += "SET STATUS = '"+comboBox1.Text.Trim()+"',MODEL = '"+ txt_MODEL.Text.Trim() + "' ,NAME = '"+txt_NAME.Text.Trim()+"' ";
                 SQL += "WHERE NAME = '" + SN + "' ";
                 QUERY_Data(SQL, "UPDATE");
                 comboBox1.Text = "";
                 textBox1.Text = "";
-                QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + SN + "'", "SELECT");
+                QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + txt_NAME.Text.Trim() + "'", "SELECT");
                 dataGridView1.DataSource = DT;
-                QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE NAME = '" + SN + "'", "SELECT");
+                QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE NAME = '" + txt_NAME.Text.Trim() + "'", "SELECT");
                 dataGridView2.DataSource = DT2;
                 //foreach (DataGridViewRow row in dataGridView1.Rows)
                 //{
@@ -587,6 +591,18 @@ namespace CCET_CA_QRCODE
             else
             {
                 MessageBox.Show("Please GenQR or enter value idqr");
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                f_LAN f_LAN = new f_LAN();
+                f_LAN.ShowDialog();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

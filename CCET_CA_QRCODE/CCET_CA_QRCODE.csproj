@@ -73,6 +73,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_LAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_LAN.Designer.cs">
+      <DependentUpon>f_LAN.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_LINE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,12 @@
     <Compile Include="f_QRCODE.Designer.cs">
       <DependentUpon>f_QRCODE.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_SETIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_SETIP.Designer.cs">
+      <DependentUpon>f_SETIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_STATUS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +120,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="f_LAN.resx">
+      <DependentUpon>f_LAN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="f_LINE.resx">
       <DependentUpon>f_LINE.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_QRCODE.resx">
       <DependentUpon>f_QRCODE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_SETIP.resx">
+      <DependentUpon>f_SETIP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_STATUS.resx">
       <DependentUpon>f_STATUS.cs</DependentUpon>
@@ -185,6 +203,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CA-TEAM-FACTORY4.ico" />
+    <None Include="Resources\lan.png" />
+    <None Include="Resources\rj45.png" />
     <None Include="Resources\plus %281%29.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\cancel.png" />

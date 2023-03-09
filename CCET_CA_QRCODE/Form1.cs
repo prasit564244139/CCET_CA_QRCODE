@@ -96,12 +96,27 @@ namespace CCET_CA_QRCODE
                 {
                     lbl_USER.Text = c_VALUES.c_USER;
                     DT.Clear();
-                    SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
-                    SQL += "RTRIM(LTRIM(A.QR)) AS QR,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+                    if (DT.Columns.Count > 0)
+                    {
+                        DT.Columns.Clear();
+                    }
+                    SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS,RTRIM(LTRIM(A.MODEL)) AS MODEL, ";
+                    SQL += "RTRIM(LTRIM(A.QR)) AS QR ";
                     SQL += "FROM TBL_GG_STORE A";
-                    //SQL += "WHERE A.ID_SPEC = B.ID_SPEC ";
+                    //SQL += "WHERE A.ID_SPEC = B.ID_SPEC "; ,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD
                     QUERY_Data(SQL);
+                    DT.Columns.Add("PROCESS", typeof(string));
+                    DT.Columns.Add("RAM", typeof(string));
+
+                    foreach (DataRow dtRow in DT.Rows)
+                    {
+                        string[] sAry = dtRow["QR"].ToString().Split('@');
+                        //MessageBox.Show(sAry[0]);
+                        dtRow["PROCESS"] = sAry[1].ToString();
+                        dtRow["RAM"] = sAry[2].ToString();
+                    }
                     dataGridView1.DataSource = DT;
+                    dataGridView1.Columns["QR"].Visible = false;
                     textBox1.Focus();
                 }
                 else
@@ -161,11 +176,12 @@ namespace CCET_CA_QRCODE
         {
             DT.Columns.Clear();
             DT.Clear();
-            SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
-            SQL += "RTRIM(LTRIM(A.QR)) AS QR,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
-            SQL += "FROM TBL_GG_STORE A";
-            QUERY_Data(SQL);
-            dataGridView1.DataSource = DT;
+            //SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS, ";
+            //SQL += "RTRIM(LTRIM(A.QR)) AS QR,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD ";
+            //SQL += "FROM TBL_GG_STORE A";
+            //QUERY_Data(SQL);
+            //dataGridView1.DataSource = DT;
+            re_FROM();
         }
 
         private void btn_EXCEL_Click(object sender, EventArgs e)

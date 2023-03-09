@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_ID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -80,6 +81,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(448, 306);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // btn_ADD
             // 
@@ -87,7 +89,7 @@
             this.btn_ADD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_ADD.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ADD.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_ADD.Location = new System.Drawing.Point(12, 346);
+            this.btn_ADD.Location = new System.Drawing.Point(19, 346);
             this.btn_ADD.Name = "btn_ADD";
             this.btn_ADD.Size = new System.Drawing.Size(123, 62);
             this.btn_ADD.TabIndex = 3;
@@ -213,7 +215,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(156, 346);
+            this.button1.Location = new System.Drawing.Point(163, 346);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 62);
             this.button1.TabIndex = 12;
@@ -221,11 +223,21 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // txt_ID
+            // 
+            this.txt_ID.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
+            this.txt_ID.Location = new System.Drawing.Point(817, 168);
+            this.txt_ID.Name = "txt_ID";
+            this.txt_ID.Size = new System.Drawing.Size(167, 43);
+            this.txt_ID.TabIndex = 13;
+            this.txt_ID.Visible = false;
+            // 
             // f_TYPE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(817, 428);
+            this.ClientSize = new System.Drawing.Size(815, 428);
+            this.Controls.Add(this.txt_ID);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox1);
@@ -270,5 +282,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_ID;
     }
 }

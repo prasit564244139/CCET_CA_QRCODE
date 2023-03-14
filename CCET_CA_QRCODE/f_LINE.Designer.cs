@@ -57,6 +57,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_NAME = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_PO = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -76,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 154);
+            this.label1.Location = new System.Drawing.Point(23, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 50);
             this.label1.TabIndex = 0;
@@ -85,10 +87,10 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(106, 154);
+            this.textBox1.Location = new System.Drawing.Point(106, 104);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 50);
+            this.textBox1.Size = new System.Drawing.Size(288, 125);
             this.textBox1.TabIndex = 1;
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
@@ -97,7 +99,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(39, 347);
+            this.label2.Location = new System.Drawing.Point(21, 433);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 36);
             this.label2.TabIndex = 2;
@@ -123,9 +125,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(444, 371);
+            this.button1.Location = new System.Drawing.Point(415, 460);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(211, 71);
+            this.button1.Size = new System.Drawing.Size(240, 71);
             this.button1.TabIndex = 5;
             this.button1.Text = "UPDATE";
             this.button1.UseVisualStyleBackColor = false;
@@ -136,7 +138,7 @@
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(20, 626);
+            this.groupBox1.Location = new System.Drawing.Point(20, 726);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(635, 208);
             this.groupBox1.TabIndex = 6;
@@ -161,7 +163,7 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(20, 448);
+            this.groupBox2.Location = new System.Drawing.Point(20, 548);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(635, 172);
             this.groupBox2.TabIndex = 7;
@@ -176,7 +178,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(676, 168);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(901, 666);
+            this.groupBox3.Size = new System.Drawing.Size(901, 768);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ALL INFOMATION";
@@ -191,7 +193,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(859, 608);
+            this.dataGridView3.Size = new System.Drawing.Size(859, 706);
             this.dataGridView3.TabIndex = 6;
             // 
             // button2
@@ -235,12 +237,16 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(106, 219);
+            this.button4.BackColor = System.Drawing.Color.Green;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold);
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button4.Location = new System.Drawing.Point(106, 245);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(192, 47);
+            this.button4.Size = new System.Drawing.Size(288, 47);
             this.button4.TabIndex = 12;
             this.button4.Text = "Enter";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
@@ -263,7 +269,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBox1.Location = new System.Drawing.Point(32, 102);
+            this.checkBox1.Location = new System.Drawing.Point(106, 51);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(170, 43);
             this.checkBox1.TabIndex = 15;
@@ -284,7 +290,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(67, 402);
+            this.label4.Location = new System.Drawing.Point(49, 488);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 36);
             this.label4.TabIndex = 20;
@@ -293,18 +299,18 @@
             // txt_MODEL
             // 
             this.txt_MODEL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_MODEL.Location = new System.Drawing.Point(167, 399);
+            this.txt_MODEL.Location = new System.Drawing.Point(149, 485);
             this.txt_MODEL.Name = "txt_MODEL";
-            this.txt_MODEL.Size = new System.Drawing.Size(231, 43);
+            this.txt_MODEL.Size = new System.Drawing.Size(245, 43);
             this.txt_MODEL.TabIndex = 21;
             // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(167, 344);
+            this.comboBox1.Location = new System.Drawing.Point(149, 430);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(231, 44);
+            this.comboBox1.Size = new System.Drawing.Size(245, 44);
             this.comboBox1.TabIndex = 22;
             // 
             // pictureBox5
@@ -322,10 +328,10 @@
             // pic_print
             // 
             this.pic_print.Image = global::CCET_CA_QRCODE.Properties.Resources.printer;
-            this.pic_print.Location = new System.Drawing.Point(537, 125);
+            this.pic_print.Location = new System.Drawing.Point(415, 337);
             this.pic_print.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pic_print.Name = "pic_print";
-            this.pic_print.Size = new System.Drawing.Size(118, 103);
+            this.pic_print.Size = new System.Drawing.Size(105, 105);
             this.pic_print.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_print.TabIndex = 19;
             this.pic_print.TabStop = false;
@@ -334,10 +340,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::CCET_CA_QRCODE.Properties.Resources.delete;
-            this.pictureBox4.Location = new System.Drawing.Point(537, 254);
+            this.pictureBox4.Location = new System.Drawing.Point(542, 337);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(118, 99);
+            this.pictureBox4.Size = new System.Drawing.Size(113, 105);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 18;
             this.pictureBox4.TabStop = false;
@@ -355,10 +361,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(326, 104);
+            this.pictureBox2.Location = new System.Drawing.Point(415, 102);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(183, 164);
+            this.pictureBox2.Size = new System.Drawing.Size(240, 213);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -379,7 +385,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(78, 289);
+            this.label5.Location = new System.Drawing.Point(60, 375);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 36);
             this.label5.TabIndex = 24;
@@ -388,16 +394,38 @@
             // txt_NAME
             // 
             this.txt_NAME.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NAME.Location = new System.Drawing.Point(167, 286);
+            this.txt_NAME.Location = new System.Drawing.Point(149, 372);
             this.txt_NAME.Name = "txt_NAME";
-            this.txt_NAME.Size = new System.Drawing.Size(231, 43);
+            this.txt_NAME.Size = new System.Drawing.Size(245, 43);
             this.txt_NAME.TabIndex = 25;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(82, 316);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 36);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "PO :";
+            // 
+            // txt_PO
+            // 
+            this.txt_PO.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_PO.Location = new System.Drawing.Point(149, 313);
+            this.txt_PO.Name = "txt_PO";
+            this.txt_PO.ReadOnly = true;
+            this.txt_PO.Size = new System.Drawing.Size(245, 43);
+            this.txt_PO.TabIndex = 27;
             // 
             // f_LINE
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ClientSize = new System.Drawing.Size(1607, 846);
+            this.ClientSize = new System.Drawing.Size(1607, 948);
+            this.Controls.Add(this.txt_PO);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_NAME);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox5);
@@ -474,5 +502,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_NAME;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txt_PO;
     }
 }

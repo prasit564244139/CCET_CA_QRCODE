@@ -36,6 +36,9 @@
     <ApplicationIcon>CA-TEAM-FACTORY4.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Json2DataTable">
+      <HintPath>..\..\..\#SCOUT\C NET CHECK SCOUT\C NET CHECK SCOUT\bin\Debug\Json2DataTable.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -91,6 +94,12 @@
     <Compile Include="f_LOGIN.Designer.cs">
       <DependentUpon>f_LOGIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="f_PO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f_PO.Designer.cs">
+      <DependentUpon>f_PO.cs</DependentUpon>
+    </Compile>
     <Compile Include="f_QRCODE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="f_LOGIN.resx">
       <DependentUpon>f_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f_PO.resx">
+      <DependentUpon>f_PO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="f_QRCODE.resx">
       <DependentUpon>f_QRCODE.cs</DependentUpon>
@@ -203,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CA-TEAM-FACTORY4.ico" />
+    <None Include="Resources\responsive.png" />
+    <None Include="Resources\excel.png" />
     <None Include="Resources\lan.png" />
     <None Include="Resources\rj45.png" />
     <None Include="Resources\plus %281%29.png" />

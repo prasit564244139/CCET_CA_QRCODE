@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using QRCoder;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Drawing.Printing;
+using Json2DataTable;
 
 namespace CCET_CA_QRCODE
 {
@@ -19,7 +20,9 @@ namespace CCET_CA_QRCODE
         static System.Data.DataTable DT = new System.Data.DataTable();
         static System.Data.DataTable DT3 = new System.Data.DataTable();
         static System.Data.DataTable DT2 = new System.Data.DataTable();
+        static System.Data.DataTable DT_PO = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
+        JsonToDataTable j2dt = new JsonToDataTable();
         Image[] images;
         String Qrgen, TextQR,SQL;
 
@@ -252,14 +255,17 @@ namespace CCET_CA_QRCODE
             //textBox1.Text.Trim().ToString().Replace("'", "");
             try
             {
+                txt_PO.Text = "";
                 if (checkBox1.Checked == true)
                 {
                     QUERY_Data("SELECT * FROM TBL_GG_STORE WHERE NAME = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
                     dataGridView1.DataSource = DT;
                     QUERY_Data2("SELECT * FROM TBL_GG_STORELOG WHERE NAME = '" + textBox1.Text.Trim().ToString().Replace("'", "") + "'", "SELECT");
                     dataGridView2.DataSource = DT2;
+                    GET_PO(textBox1.Text.Trim().ToString().Replace("'", ""));
                     textBox1.Clear();
                     textBox1.Focus();
+                    
                 }
                 else
                 {
@@ -277,6 +283,7 @@ namespace CCET_CA_QRCODE
                     if (DT.Rows.Count > 0) {
                         dataGridView2.DataSource = DT2;
                     }
+                    GET_PO(DT.Rows[0]["NAME"].ToString());
                     textBox1.Clear();
                     textBox1.Focus();
                 }
@@ -304,6 +311,47 @@ namespace CCET_CA_QRCODE
 
             }
             
+        }
+
+        public void GET_PO(String NAME_PC)
+        {
+            try
+            {
+                SQL = "SELECT * FROM DPCT10 WHERE STICKER_COMPUTER_NAME = '"+ NAME_PC.Trim()+ "'";
+                Query_DT("LOA", SQL);
+                if (DT_PO.Rows.Count > 0)
+                {
+                    txt_PO.Text = DT_PO.Rows[0][0].ToString().Trim();
+                }
+                else
+                {
+                    txt_PO.Text = "NOT PO";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public void Query_DT(String DB, String SQL)
+        {
+            //Json2DataTable j2dt = New Json2DataTable.JsonToDataTable();
+            try
+            {
+                //dataGridView1.DataSource = null;
+                j2dt.Url = "http://10.51.64.63:8085/service/query";
+                j2dt.db = DB;
+                j2dt.cmd = SQL;
+                //dataGridView1.DataSource = j2dt.getData();
+                DT_PO = j2dt.getData();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         public void GEN_QR(String txtQR)

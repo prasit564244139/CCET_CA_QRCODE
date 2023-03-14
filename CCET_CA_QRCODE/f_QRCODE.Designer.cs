@@ -204,7 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(990, 447);
+            this.ClientSize = new System.Drawing.Size(1370, 447);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.txt_MODEL);
             this.Controls.Add(this.label5);

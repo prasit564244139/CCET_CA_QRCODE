@@ -46,6 +46,7 @@
             this.pic_LOGOUT = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_PO = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_LOGOUT)).BeginInit();
@@ -59,9 +60,9 @@
             this.btnQR.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQR.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.btnQR.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQR.Location = new System.Drawing.Point(379, 129);
+            this.btnQR.Location = new System.Drawing.Point(227, 118);
             this.btnQR.Name = "btnQR";
-            this.btnQR.Size = new System.Drawing.Size(150, 56);
+            this.btnQR.Size = new System.Drawing.Size(168, 56);
             this.btnQR.TabIndex = 0;
             this.btnQR.Text = "QRCODE";
             this.btnQR.UseVisualStyleBackColor = false;
@@ -83,13 +84,13 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 106);
+            this.dataGridView1.Location = new System.Drawing.Point(20, 121);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(808, 463);
+            this.dataGridView1.Size = new System.Drawing.Size(808, 362);
             this.dataGridView1.TabIndex = 1;
             // 
             // btTYPE
@@ -98,9 +99,9 @@
             this.btTYPE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btTYPE.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btTYPE.ForeColor = System.Drawing.SystemColors.Control;
-            this.btTYPE.Location = new System.Drawing.Point(26, 129);
+            this.btTYPE.Location = new System.Drawing.Point(227, 27);
             this.btTYPE.Name = "btTYPE";
-            this.btTYPE.Size = new System.Drawing.Size(140, 56);
+            this.btTYPE.Size = new System.Drawing.Size(168, 56);
             this.btTYPE.TabIndex = 2;
             this.btTYPE.Text = "SPEC";
             this.btTYPE.UseVisualStyleBackColor = false;
@@ -112,9 +113,9 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(548, 129);
+            this.button1.Location = new System.Drawing.Point(417, 118);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 56);
+            this.button1.Size = new System.Drawing.Size(156, 56);
             this.button1.TabIndex = 3;
             this.button1.Text = "STATUS";
             this.button1.UseVisualStyleBackColor = false;
@@ -125,7 +126,7 @@
             this.lbl_USER.AutoSize = true;
             this.lbl_USER.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_USER.ForeColor = System.Drawing.Color.White;
-            this.lbl_USER.Location = new System.Drawing.Point(408, 46);
+            this.lbl_USER.Location = new System.Drawing.Point(785, 35);
             this.lbl_USER.Name = "lbl_USER";
             this.lbl_USER.Size = new System.Drawing.Size(75, 39);
             this.lbl_USER.TabIndex = 4;
@@ -134,7 +135,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(86, 50);
+            this.textBox1.Location = new System.Drawing.Point(86, 56);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(531, 35);
             this.textBox1.TabIndex = 5;
@@ -146,7 +147,7 @@
             this.btn_SHOW_ALL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_SHOW_ALL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_SHOW_ALL.ForeColor = System.Drawing.Color.White;
-            this.btn_SHOW_ALL.Location = new System.Drawing.Point(636, 33);
+            this.btn_SHOW_ALL.Location = new System.Drawing.Point(636, 39);
             this.btn_SHOW_ALL.Name = "btn_SHOW_ALL";
             this.btn_SHOW_ALL.Size = new System.Drawing.Size(192, 63);
             this.btn_SHOW_ALL.TabIndex = 8;
@@ -160,7 +161,7 @@
             this.btn_EXCEL.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_EXCEL.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_EXCEL.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_EXCEL.Location = new System.Drawing.Point(714, 129);
+            this.btn_EXCEL.Location = new System.Drawing.Point(417, 208);
             this.btn_EXCEL.Name = "btn_EXCEL";
             this.btn_EXCEL.Size = new System.Drawing.Size(156, 56);
             this.btn_EXCEL.TabIndex = 10;
@@ -173,7 +174,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 50);
+            this.label1.Location = new System.Drawing.Point(24, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 39);
             this.label1.TabIndex = 13;
@@ -187,9 +188,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(19, 191);
+            this.groupBox1.Location = new System.Drawing.Point(16, 270);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(854, 588);
+            this.groupBox1.Size = new System.Drawing.Size(854, 506);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "INFOMATION";
@@ -199,7 +200,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(326, 46);
+            this.label2.Location = new System.Drawing.Point(703, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 39);
             this.label2.TabIndex = 16;
@@ -211,7 +212,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(188, 129);
+            this.button2.Location = new System.Drawing.Point(227, 208);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(168, 56);
             this.button2.TabIndex = 17;
@@ -222,9 +223,9 @@
             // pic_LOGOUT
             // 
             this.pic_LOGOUT.Image = global::CCET_CA_QRCODE.Properties.Resources.logout;
-            this.pic_LOGOUT.Location = new System.Drawing.Point(752, 22);
+            this.pic_LOGOUT.Location = new System.Drawing.Point(664, 129);
             this.pic_LOGOUT.Name = "pic_LOGOUT";
-            this.pic_LOGOUT.Size = new System.Drawing.Size(95, 83);
+            this.pic_LOGOUT.Size = new System.Drawing.Size(151, 120);
             this.pic_LOGOUT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_LOGOUT.TabIndex = 12;
             this.pic_LOGOUT.TabStop = false;
@@ -233,7 +234,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::CCET_CA_QRCODE.Properties.Resources.profile__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(219, 26);
+            this.pictureBox2.Location = new System.Drawing.Point(596, 15);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(91, 82);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -243,18 +244,33 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CCET_CA_QRCODE.Properties.Resources.CA_TEAM_FACTORY4;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 56);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(133, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(183, 168);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // btn_PO
+            // 
+            this.btn_PO.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btn_PO.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_PO.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PO.ForeColor = System.Drawing.SystemColors.Control;
+            this.btn_PO.Location = new System.Drawing.Point(417, 27);
+            this.btn_PO.Name = "btn_PO";
+            this.btn_PO.Size = new System.Drawing.Size(156, 56);
+            this.btn_PO.TabIndex = 18;
+            this.btn_PO.Text = "PO";
+            this.btn_PO.UseVisualStyleBackColor = false;
+            this.btn_PO.Click += new System.EventHandler(this.btn_PO_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(895, 788);
+            this.Controls.Add(this.btn_PO);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -272,7 +288,7 @@
             this.MinimumSize = new System.Drawing.Size(913, 835);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "INFOMATION V1.41";
+            this.Text = "INFOMATION V2.2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -303,6 +319,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_PO;
     }
 }
 

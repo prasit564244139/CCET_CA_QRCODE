@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Microsoft.Office.Interop.Excel;
+using Json2DataTable;
 
 
 namespace CCET_CA_QRCODE
@@ -18,7 +19,9 @@ namespace CCET_CA_QRCODE
     public partial class Form1 : Form
     {
         static System.Data.DataTable DT = new System.Data.DataTable();
+        static System.Data.DataTable DT_PO = new System.Data.DataTable();
         static SqlConnection conn = new SqlConnection();
+        JsonToDataTable j2dt = new JsonToDataTable();
         static string SQL;
         static void QUERY_Data(String SQL)
         {
@@ -100,23 +103,28 @@ namespace CCET_CA_QRCODE
                     {
                         DT.Columns.Clear();
                     }
+                    //DT.Columns.Add("PO", typeof(string));
                     SQL = "SELECT RTRIM(LTRIM(A.NAME)) AS NAME,RTRIM(LTRIM(A.KEY_MAC)) AS KEY_MAC,RTRIM(LTRIM(A.STATUS)) AS STATUS,RTRIM(LTRIM(A.MODEL)) AS MODEL, ";
                     SQL += "RTRIM(LTRIM(A.QR)) AS QR ";
                     SQL += "FROM TBL_GG_STORE A";
                     //SQL += "WHERE A.ID_SPEC = B.ID_SPEC "; ,RTRIM(LTRIM(A.LAST_UPD)) AS LAST_UPD
                     QUERY_Data(SQL);
+                    //DT.Columns.Add("PO", typeof(string));
                     DT.Columns.Add("PROCESS", typeof(string));
                     DT.Columns.Add("RAM", typeof(string));
-
+                    
                     foreach (DataRow dtRow in DT.Rows)
                     {
+                        //GET_PO(dtRow["NAME"].ToString().Trim());
                         string[] sAry = dtRow["QR"].ToString().Split('@');
                         //MessageBox.Show(sAry[0]);
                         dtRow["PROCESS"] = sAry[1].ToString();
                         dtRow["RAM"] = sAry[2].ToString();
+                        //dtRow["PO"] = GET_PO("aa");
                     }
                     dataGridView1.DataSource = DT;
                     dataGridView1.Columns["QR"].Visible = false;
+                    
                     textBox1.Focus();
                 }
                 else
@@ -129,6 +137,49 @@ namespace CCET_CA_QRCODE
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        public string GET_PO(string PC_NAME)
+        {
+            try
+            {
+                String STICKER;
+                SQL = "SELECT STICKER_COMPUTER_NAME FROM DPCT10 WHERE STICKER_COMPUTER_NAME = '"+ PC_NAME.Trim()+ "' ";
+                Query_PO("LOA",SQL);
+                if (DT_PO.Rows.Count > 0)
+                {
+                    STICKER = DT_PO.Rows[0][0].ToString().Trim();
+                }
+                else
+                {
+                    STICKER = "NOT DATA";
+                }
+                return STICKER;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return "ERROR";
+            }
+        }
+
+        public void Query_PO(String DB, String SQL)
+        {
+            //Json2DataTable j2dt = New Json2DataTable.JsonToDataTable();
+            try
+            {
+                dataGridView1.DataSource = null;
+                j2dt.Url = "http://10.51.64.63:8085/service/query";
+                j2dt.db = DB;
+                j2dt.cmd = SQL;
+                //dataGridView1.DataSource = j2dt.getData();
+                DT_PO = j2dt.getData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         private void pic_LOGOUT_Click(object sender, EventArgs e)
@@ -241,6 +292,19 @@ namespace CCET_CA_QRCODE
             {
                 f_STATUS f_STATUS = new f_STATUS();
                 f_STATUS.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void btn_PO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                f_PO f_PO = new f_PO();
+                f_PO.ShowDialog();
             }
             catch (Exception ex)
             {
